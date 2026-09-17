@@ -239,3 +239,9 @@ credentials.json
 *.mkv
 *.pptx
 docs/marketing_kit/video/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
