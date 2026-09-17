@@ -1,0 +1,464 @@
+[
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 100,
+        "fields": {
+            "title": "Урок 1. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-20"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 101,
+        "fields": {
+            "title": "Урок 2. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-22"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1101,
+        "fields": {
+            "title": "ДЗ: Урок 2. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-22"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 102,
+        "fields": {
+            "title": "Урок 3. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-24"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 103,
+        "fields": {
+            "title": "Урок 4. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-26"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 104,
+        "fields": {
+            "title": "Урок 5. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-28"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1104,
+        "fields": {
+            "title": "ДЗ: Урок 5. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-28"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 105,
+        "fields": {
+            "title": "Урок 6. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-05-30"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 106,
+        "fields": {
+            "title": "Урок 7. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-01"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 107,
+        "fields": {
+            "title": "Урок 8. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-03"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1107,
+        "fields": {
+            "title": "ДЗ: Урок 8. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-03"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 108,
+        "fields": {
+            "title": "Урок 9. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-05"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 109,
+        "fields": {
+            "title": "Урок 10. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-07"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 110,
+        "fields": {
+            "title": "Урок 11. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-09"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 111,
+        "fields": {
+            "title": "Урок 12. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-11"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 112,
+        "fields": {
+            "title": "Урок 13. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-13"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 113,
+        "fields": {
+            "title": "Урок 14. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-15"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 114,
+        "fields": {
+            "title": "Урок 15. Розв'язування рівнянь",
+            "comment": "",
+            "group": 100,
+            "date": "2026-06-17"
+        }
+    },
+    {
+        "model": "testing.test",
+        "pk": 100,
+        "fields": {
+            "title": "Контрольна робота №1",
+            "description": "",
+            "created_by": 27,
+            "created_at": "2026-06-09T22:02:58Z",
+            "current_version": 100
+        }
+    },
+    {
+        "model": "testing.question",
+        "pk": 100,
+        "fields": {
+            "text": "Питання 1",
+            "points": 1.0,
+            "type": "single_choice",
+            "created_by": 27,
+            "created_at": "2026-06-09T22:02:58Z",
+            "explanation": ""
+        }
+    },
+    {
+        "model": "testing.question",
+        "pk": 101,
+        "fields": {
+            "text": "Питання 2",
+            "points": 1.0,
+            "type": "single_choice",
+            "created_by": 27,
+            "created_at": "2026-06-09T22:02:58Z",
+            "explanation": ""
+        }
+    },
+    {
+        "model": "testing.testversion",
+        "pk": 100,
+        "fields": {
+            "test": 100,
+            "version_number": 1,
+            "status": "published",
+            "passing_score_percent": 60,
+            "is_random_order": false,
+            "created_at": "2026-06-09T22:02:58Z",
+            "questions": [
+                100,
+                101
+            ]
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 115,
+        "fields": {
+            "title": "Урок 1. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-20"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 116,
+        "fields": {
+            "title": "Урок 2. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-22"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1116,
+        "fields": {
+            "title": "ДЗ: Урок 2. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-22"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 117,
+        "fields": {
+            "title": "Урок 3. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-24"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 118,
+        "fields": {
+            "title": "Урок 4. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-26"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 119,
+        "fields": {
+            "title": "Урок 5. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-28"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1119,
+        "fields": {
+            "title": "ДЗ: Урок 5. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-28"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 120,
+        "fields": {
+            "title": "Урок 6. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-05-30"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 121,
+        "fields": {
+            "title": "Урок 7. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-01"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 122,
+        "fields": {
+            "title": "Урок 8. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-03"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 1122,
+        "fields": {
+            "title": "ДЗ: Урок 8. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-03"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 123,
+        "fields": {
+            "title": "Урок 9. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-05"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 124,
+        "fields": {
+            "title": "Урок 10. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-07"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 125,
+        "fields": {
+            "title": "Урок 11. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-09"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 126,
+        "fields": {
+            "title": "Урок 12. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-11"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 127,
+        "fields": {
+            "title": "Урок 13. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-13"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 128,
+        "fields": {
+            "title": "Урок 14. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-15"
+        }
+    },
+    {
+        "model": "gradebook.gradecolumn",
+        "pk": 129,
+        "fields": {
+            "title": "Урок 15. Київська Русь",
+            "comment": "",
+            "group": 101,
+            "date": "2026-06-17"
+        }
+    },
+    {
+        "model": "testing.test",
+        "pk": 101,
+        "fields": {
+            "title": "Підсумковий тест",
+            "description": "",
+            "created_by": 29,
+            "created_at": "2026-06-09T22:02:58Z",
+            "current_version": 101
+        }
+    },
+    {
+        "model": "testing.question",
+        "pk": 102,
+        "fields": {
+            "text": "Питання 1",
+            "points": 1.0,
+            "type": "single_choice",
+            "created_by": 29,
+            "created_at": "2026-06-09T22:02:58Z",
+            "explanation": ""
+        }
+    },
+    {
+        "model": "testing.question",
+        "pk": 103,
+        "fields": {
+            "text": "Питання 2",
+            "points": 1.0,
+            "type": "single_choice",
+            "created_by": 29,
+            "created_at": "2026-06-09T22:02:58Z",
+            "explanation": ""
+        }
+    },
+    {
+        "model": "testing.testversion",
+        "pk": 101,
+        "fields": {
+            "test": 101,
+            "version_number": 1,
+            "status": "published",
+            "passing_score_percent": 60,
+            "is_random_order": false,
+            "created_at": "2026-06-09T22:02:58Z",
+            "questions": [
+                102,
+                103
+            ]
+        }
+    }
+]

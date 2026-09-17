@@ -1,0 +1,100 @@
+﻿name: UniSchool
+
+services:
+  db:
+    image: postgres:17-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:${DB_PORT}"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+  api:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    env_file:
+      - .env.docker
+
+  celery_worker:
+    build: .
+    command: celery -A UniSchool worker --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env.docker
+
+  celery_beat:
+    build: .
+    command: celery -A UniSchool beat --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env.docker
+
+  front:
+    build:
+      context: ../front
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+      API_INTERNAL_BASE_URL: http://api:8000
+    ports:
+      - "3000:3000"
+    command: npm run start
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http --url=${NGROK_DOMAIN} api:${NGROK_PORT}
+    env_file:
+      - .env.docker
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_TOKEN}
+    ports:
+      - "4040:4040"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    name: unischool_network

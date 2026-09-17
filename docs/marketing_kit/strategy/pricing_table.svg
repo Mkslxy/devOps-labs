@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 36px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; fill: #64748b; }
+      
+      .card-bg-white { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2px; rx: 16px; ry: 16px; }
+      .card-bg-blue { fill: #2563eb; rx: 16px; ry: 16px; }
+      .card-bg-dark { fill: #1e293b; rx: 16px; ry: 16px; }
+      
+      .tier-title-dark { font-family: 'Segoe UI', Arial, sans-serif; font-size: 24px; font-weight: 600; fill: #334155; }
+      .tier-title-light { font-family: 'Segoe UI', Arial, sans-serif; font-size: 24px; font-weight: 600; fill: #f1f5f9; }
+      
+      .price-dark { font-family: 'Segoe UI', Arial, sans-serif; font-size: 48px; font-weight: bold; fill: #0f172a; }
+      .price-light { font-family: 'Segoe UI', Arial, sans-serif; font-size: 48px; font-weight: bold; fill: #ffffff; }
+      
+      .price-sub-dark { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; fill: #64748b; }
+      .price-sub-light { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; fill: #cbd5e1; }
+      
+      .feature-dark { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; fill: #475569; }
+      .feature-light { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; fill: #e2e8f0; }
+      
+      .btn-outline { fill: transparent; stroke: #2563eb; stroke-width: 2px; rx: 8px; ry: 8px; }
+      .btn-outline-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2563eb; }
+      
+      .btn-solid { fill: #ffffff; rx: 8px; ry: 8px; }
+      .btn-solid-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2563eb; }
+      
+      .btn-solid-blue { fill: #3b82f6; rx: 8px; ry: 8px; }
+      .btn-solid-blue-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #ffffff; }
+      
+      .popular-badge { fill: #38bdf8; rx: 12px; ry: 12px; }
+      .popular-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" class="bg" />
+
+  <!-- Header -->
+  <text x="600" y="80" text-anchor="middle" class="title">Тарифні плани UniSchoolLMS</text>
+  <text x="600" y="115" text-anchor="middle" class="subtitle">Прості та прозорі ціни для навчальних закладів будь-якого розміру</text>
+
+  <!-- STARTER CARD -->
+  <g transform="translate(100, 180)">
+    <rect width="300" height="420" class="card-bg-white" />
+    <text x="30" y="50" class="tier-title-dark">Starter</text>
+    <text x="30" y="110" class="price-dark">$0</text>
+    <text x="95" y="105" class="price-sub-dark">/ назавжди</text>
+    
+    <!-- Divider -->
+    <line x1="30" y1="140" x2="270" y2="140" stroke="#e2e8f0" stroke-width="2" />
+    
+    <!-- Features -->
+    <circle cx="40" cy="180" r="4" fill="#10b981" />
+    <text x="55" y="186" class="feature-dark">До 50 учнів</text>
+    
+    <circle cx="40" cy="220" r="4" fill="#10b981" />
+    <text x="55" y="226" class="feature-dark">Базовий журнал оцінок</text>
+    
+    <circle cx="40" cy="260" r="4" fill="#10b981" />
+    <text x="55" y="266" class="feature-dark">1 акаунт адміністратора</text>
+    
+    <circle cx="40" cy="300" r="4" fill="#10b981" />
+    <text x="55" y="306" class="feature-dark">Спільнота підтримки</text>
+
+    <!-- Button -->
+    <rect x="30" y="350" width="240" height="44" class="btn-outline" />
+    <text x="150" y="378" text-anchor="middle" class="btn-outline-text">Почати безкоштовно</text>
+  </g>
+
+  <!-- PRO CARD (Highlighted) -->
+  <g transform="translate(450, 160)"> <!-- Shifted up by 20px -->
+    <rect width="300" height="460" class="card-bg-blue" />
+    
+    <!-- Popular Badge -->
+    <rect x="180" y="20" width="100" height="24" class="popular-badge" />
+    <text x="230" y="37" text-anchor="middle" class="popular-text">Популярно</text>
+
+    <text x="30" y="60" class="tier-title-light">Pro</text>
+    <text x="30" y="120" class="price-light">$99</text>
+    <text x="125" y="115" class="price-sub-light">/ міс на школу</text>
+    
+    <!-- Divider -->
+    <line x1="30" y1="150" x2="270" y2="150" stroke="#3b82f6" stroke-width="2" />
+    
+    <!-- Features -->
+    <circle cx="40" cy="190" r="4" fill="#38bdf8" />
+    <text x="55" y="196" class="feature-light">Необмежено учнів</text>
+    
+    <circle cx="40" cy="230" r="4" fill="#38bdf8" />
+    <text x="55" y="236" class="feature-light">Експорт звітів у PDF / CSV</text>
+    
+    <circle cx="40" cy="270" r="4" fill="#38bdf8" />
+    <text x="55" y="276" class="feature-light">Поглиблена аналітика успішності</text>
+    
+    <circle cx="40" cy="310" r="4" fill="#38bdf8" />
+    <text x="55" y="316" class="feature-light">Пріоритетна підтримка</text>
+
+    <!-- Button -->
+    <rect x="30" y="390" width="240" height="44" class="btn-solid" />
+    <text x="150" y="418" text-anchor="middle" class="btn-solid-text">Спробувати Pro</text>
+  </g>
+
+  <!-- ENTERPRISE CARD -->
+  <g transform="translate(800, 180)">
+    <rect width="300" height="420" class="card-bg-dark" />
+    <text x="30" y="50" class="tier-title-light">Enterprise</text>
+    <text x="30" y="110" class="price-light">Кастомно</text>
+    <text x="215" y="105" class="price-sub-light"></text>
+    
+    <!-- Divider -->
+    <line x1="30" y1="140" x2="270" y2="140" stroke="#334155" stroke-width="2" />
+    
+    <!-- Features -->
+    <circle cx="40" cy="180" r="4" fill="#3b82f6" />
+    <text x="55" y="186" class="feature-light">Виділений сервер (On-Premise)</text>
+    
+    <circle cx="40" cy="220" r="4" fill="#3b82f6" />
+    <text x="55" y="226" class="feature-light">Інтеграція SAML SSO</text>
+    
+    <circle cx="40" cy="260" r="4" fill="#3b82f6" />
+    <text x="55" y="266" class="feature-light">White-labeling (ваші кольори)</text>
+    
+    <circle cx="40" cy="300" r="4" fill="#3b82f6" />
+    <text x="55" y="306" class="feature-light">Персональний менеджер</text>
+
+    <!-- Button -->
+    <rect x="30" y="350" width="240" height="44" class="btn-solid-blue" />
+    <text x="150" y="378" text-anchor="middle" class="btn-solid-blue-text">Зв'язатися з Sales</text>
+  </g>
+
+</svg>

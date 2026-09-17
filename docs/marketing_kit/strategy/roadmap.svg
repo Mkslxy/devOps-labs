@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 36px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; fill: #64748b; }
+      
+      .timeline-line { stroke: #cbd5e1; stroke-width: 6px; stroke-linecap: round; }
+      .timeline-progress { stroke: #3b82f6; stroke-width: 6px; stroke-linecap: round; }
+      
+      .node-outer { fill: #ffffff; stroke: #3b82f6; stroke-width: 4px; }
+      .node-inner { fill: #3b82f6; }
+      .node-future-outer { fill: #ffffff; stroke: #cbd5e1; stroke-width: 4px; }
+      .node-future-inner { fill: #cbd5e1; }
+      
+      .card-bg { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2px; rx: 12px; ry: 12px; }
+      .card-bg-active { fill: #ffffff; stroke: #3b82f6; stroke-width: 2px; rx: 12px; ry: 12px; }
+      
+      .date-active { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #2563eb; }
+      .date-future { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #64748b; }
+      
+      .card-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #0f172a; }
+      .list-item { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; fill: #475569; }
+      
+      .connector { stroke: #cbd5e1; stroke-width: 2px; stroke-dasharray: 6 6; }
+      .connector-active { stroke: #3b82f6; stroke-width: 2px; stroke-dasharray: 6 6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" class="bg" />
+
+  <!-- Header -->
+  <text x="600" y="70" text-anchor="middle" class="title">Product Roadmap</text>
+  <text x="600" y="105" text-anchor="middle" class="subtitle">Стратегічне бачення розвитку UniSchoolLMS</text>
+
+  <!-- Timeline Line -->
+  <line x1="100" y1="350" x2="1100" y2="350" class="timeline-line" />
+  <line x1="100" y1="350" x2="250" y2="350" class="timeline-progress" /> <!-- Progress so far -->
+
+  <!-- =============================== -->
+  <!-- NODE 1: MVP (Q2 2026) - BOTTOM  -->
+  <!-- =============================== -->
+  <!-- Connector -->
+  <line x1="200" y1="350" x2="200" y2="400" class="connector-active" />
+  
+  <!-- Node -->
+  <circle cx="200" cy="350" r="16" class="node-outer" />
+  <circle cx="200" cy="350" r="8" class="node-inner" />
+  
+  <!-- Card -->
+  <rect x="75" y="400" width="250" height="150" class="card-bg-active" />
+  <text x="200" y="435" text-anchor="middle" class="date-active">MVP Release (Зараз)</text>
+  <line x1="95" y1="450" x2="305" y2="450" stroke="#e2e8f0" stroke-width="1" />
+  
+  <circle cx="95" cy="475" r="4" fill="#3b82f6" />
+  <text x="110" y="481" class="list-item">Рольова модель (JWT)</text>
+  
+  <circle cx="95" cy="505" r="4" fill="#3b82f6" />
+  <text x="110" y="511" class="list-item">Базова аналітика</text>
+  
+  <circle cx="95" cy="535" r="4" fill="#3b82f6" />
+  <text x="110" y="541" class="list-item">Docker-інфраструктура</text>
+
+
+  <!-- =============================== -->
+  <!-- NODE 2: Q3 2026 - TOP           -->
+  <!-- =============================== -->
+  <line x1="450" y1="350" x2="450" y2="290" class="connector" />
+  
+  <circle cx="450" cy="350" r="16" class="node-future-outer" />
+  <circle cx="450" cy="350" r="8" class="node-future-inner" />
+  
+  <rect x="325" y="140" width="250" height="150" class="card-bg" />
+  <text x="450" y="175" text-anchor="middle" class="date-future">Q3 2026</text>
+  <line x1="345" y1="190" x2="555" y2="190" stroke="#e2e8f0" stroke-width="1" />
+  
+  <circle cx="345" cy="215" r="4" fill="#64748b" />
+  <text x="360" y="221" class="list-item">AI-асистент для оцінок</text>
+  
+  <circle cx="345" cy="245" r="4" fill="#64748b" />
+  <text x="360" y="251" class="list-item">Батьківський портал</text>
+  
+  <circle cx="345" cy="275" r="4" fill="#64748b" />
+  <text x="360" y="281" class="list-item">Push-сповіщення</text>
+
+
+  <!-- =============================== -->
+  <!-- NODE 3: Q4 2026 - BOTTOM        -->
+  <!-- =============================== -->
+  <line x1="700" y1="350" x2="700" y2="400" class="connector" />
+  
+  <circle cx="700" cy="350" r="16" class="node-future-outer" />
+  <circle cx="700" cy="350" r="8" class="node-future-inner" />
+  
+  <rect x="575" y="400" width="250" height="150" class="card-bg" />
+  <text x="700" y="435" text-anchor="middle" class="date-future">Q4 2026</text>
+  <line x1="595" y1="450" x2="805" y2="450" stroke="#e2e8f0" stroke-width="1" />
+  
+  <circle cx="595" cy="475" r="4" fill="#64748b" />
+  <text x="610" y="481" class="list-item">Інтеграція Zoom / Meet</text>
+  
+  <circle cx="595" cy="505" r="4" fill="#64748b" />
+  <text x="610" y="511" class="list-item">CI/CD Pipeline</text>
+  
+  <circle cx="595" cy="535" r="4" fill="#64748b" />
+  <text x="610" y="541" class="list-item">E2E тестування (Cypress)</text>
+
+
+  <!-- =============================== -->
+  <!-- NODE 4: Q1 2027 - TOP           -->
+  <!-- =============================== -->
+  <line x1="950" y1="350" x2="950" y2="290" class="connector" />
+  
+  <circle cx="950" cy="350" r="16" class="node-future-outer" />
+  <circle cx="950" cy="350" r="8" class="node-future-inner" />
+  
+  <rect x="825" y="140" width="250" height="150" class="card-bg" />
+  <text x="950" y="175" text-anchor="middle" class="date-future">Q1 2027 (Масштабування)</text>
+  <line x1="845" y1="190" x2="1055" y2="190" stroke="#e2e8f0" stroke-width="1" />
+  
+  <circle cx="845" cy="215" r="4" fill="#64748b" />
+  <text x="860" y="221" class="list-item">Хмарна інфраструктура (AWS)</text>
+  
+  <circle cx="845" cy="245" r="4" fill="#64748b" />
+  <text x="860" y="251" class="list-item">Database Sharding</text>
+  
+  <circle cx="845" cy="275" r="4" fill="#64748b" />
+  <text x="860" y="281" class="list-item">Мікросервісна архітектура</text>
+
+</svg>

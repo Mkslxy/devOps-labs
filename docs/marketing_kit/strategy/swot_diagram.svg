@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 34px; font-weight: bold; fill: #0f172a; }
+      .box-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 26px; font-weight: bold; }
+      .list-item { font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px; fill: #334155; font-weight: 500; }
+      .box { rx: 20px; ry: 20px; }
+      
+      /* Strengths: Blue */
+      .s-box { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 3px; }
+      .s-title { fill: #1d4ed8; }
+      .s-dot { fill: #3b82f6; }
+      
+      /* Weaknesses: Red */
+      .w-box { fill: #fef2f2; stroke: #fecaca; stroke-width: 3px; }
+      .w-title { fill: #b91c1c; }
+      .w-dot { fill: #ef4444; }
+      
+      /* Opportunities: Green */
+      .o-box { fill: #f0fdf4; stroke: #bbf7d0; stroke-width: 3px; }
+      .o-title { fill: #15803d; }
+      .o-dot { fill: #22c55e; }
+      
+      /* Threats: Orange/Yellow */
+      .t-box { fill: #fffbeb; stroke: #fde68a; stroke-width: 3px; }
+      .t-title { fill: #b45309; }
+      .t-dot { fill: #f59e0b; }
+    </style>
+  </defs>
+
+  <!-- Main Title -->
+  <text x="500" y="55" text-anchor="middle" class="title">SWOT Аналіз: UniSchoolLMS</text>
+
+  <!-- Strengths -->
+  <rect x="40" y="90" width="440" height="270" class="box s-box" />
+  <text x="70" y="140" class="box-title s-title">S - Сильні сторони</text>
+  <circle cx="80" cy="180" r="5" class="s-dot" />
+  <text x="100" y="186" class="list-item">Сучасний та швидкий UI/UX</text>
+  <circle cx="80" cy="220" r="5" class="s-dot" />
+  <text x="100" y="226" class="list-item">Новітній технологічний стек</text>
+  <circle cx="80" cy="260" r="5" class="s-dot" />
+  <text x="100" y="266" class="list-item">Повна адаптивність під мобільні пристрої</text>
+  <circle cx="80" cy="300" r="5" class="s-dot" />
+  <text x="100" y="306" class="list-item">Легкість та швидкість розгортання</text>
+
+  <!-- Weaknesses -->
+  <rect x="520" y="90" width="440" height="270" class="box w-box" />
+  <text x="550" y="140" class="box-title w-title">W - Слабкі сторони</text>
+  <circle cx="560" cy="180" r="5" class="w-dot" />
+  <text x="580" y="186" class="list-item">Відсутність впізнаваного бренду на старті</text>
+  <circle cx="560" cy="220" r="5" class="w-dot" />
+  <text x="580" y="226" class="list-item">Обмежена кількість інтеграцій (MVP)</text>
+  <circle cx="560" cy="260" r="5" class="w-dot" />
+  <text x="580" y="266" class="list-item">Відсутність готової бази клієнтів</text>
+
+  <!-- Opportunities -->
+  <rect x="40" y="390" width="440" height="270" class="box o-box" />
+  <text x="70" y="440" class="box-title o-title">O - Можливості</text>
+  <circle cx="80" cy="480" r="5" class="o-dot" />
+  <text x="100" y="486" class="list-item">Зростаючий попит на дистанційне навчання</text>
+  <circle cx="80" cy="520" r="5" class="o-dot" />
+  <text x="100" y="526" class="list-item">Незадоволеність повільними старими LMS</text>
+  <circle cx="80" cy="560" r="5" class="o-dot" />
+  <text x="100" y="566" class="list-item">Швидкий вихід на ринок (B2B продажі)</text>
+
+  <!-- Threats -->
+  <rect x="520" y="390" width="440" height="270" class="box t-box" />
+  <text x="550" y="440" class="box-title t-title">T - Загрози</text>
+  <circle cx="560" cy="480" r="5" class="t-dot" />
+  <text x="580" y="486" class="list-item">Безкоштовні альтернативи (Google Classroom)</text>
+  <circle cx="560" cy="520" r="5" class="t-dot" />
+  <text x="580" y="526" class="list-item">Високий бар'єр переходу для шкіл</text>
+  <circle cx="560" cy="560" r="5" class="t-dot" />
+  <text x="580" y="566" class="list-item">Консервативність адміністрацій</text>
+  
+</svg>

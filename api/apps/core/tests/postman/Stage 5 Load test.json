@@ -1,0 +1,266 @@
+﻿{
+  "info": {
+    "name": "UniSchoolLMS - Massive Load Test",
+    "description": "Комплексне навантажувальне тестування (25 ендпоінтів: 1 Login + 24 GET-запити до різних модулів).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"System did not crash (status < 500)\", function () {",
+          "    pm.expect(pm.response.code).to.be.below(500);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Логін (Login)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// ПЕРЕХОПЛЕННЯ JWT ТОКЕНА З КУКІ",
+              "let headers = pm.response.headers.all();",
+              "let accessToken = null;",
+              "for (let i = 0; i < headers.length; i++) {",
+              "    if (headers[i].key.toLowerCase() === \"set-cookie\" && headers[i].value.includes(\"access-token=\")) {",
+              "        accessToken = headers[i].value.split(\"access-token=\")[1].split(\";\")[0];",
+              "        break;",
+              "    }",
+              "}",
+              "if (accessToken) {",
+              "    pm.collectionVariables.set(\"access_token\", accessToken);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"bananbka0.2@gmail.com\",\n  \"password\": \"qweqweqwe\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login/",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "login", ""]
+        }
+      }
+    },
+    {
+      "name": "2. Профіль (Profile)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/profile/me/", "host": ["{{base_url}}"], "path": ["profile", "me", ""] }
+      }
+    },
+    {
+      "name": "3. Користувачі (Users)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/users/", "host": ["{{base_url}}"], "path": ["users", ""] }
+      }
+    },
+    {
+      "name": "4. Ролі (Roles)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/roles/", "host": ["{{base_url}}"], "path": ["roles", ""] }
+      }
+    },
+    {
+      "name": "5. Курси (Courses)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/course/", "host": ["{{base_url}}"], "path": ["course", ""] }
+      }
+    },
+    {
+      "name": "6. Модулі (Modules)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/module/", "host": ["{{base_url}}"], "path": ["module", ""] }
+      }
+    },
+    {
+      "name": "7. Теми (Topics)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/topic/", "host": ["{{base_url}}"], "path": ["topic", ""] }
+      }
+    },
+    {
+      "name": "8. Матеріали (Materials)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/material/", "host": ["{{base_url}}"], "path": ["material", ""] }
+      }
+    },
+    {
+      "name": "9. Предмети (Subjects)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/subject/", "host": ["{{base_url}}"], "path": ["subject", ""] }
+      }
+    },
+    {
+      "name": "10. Завдання (Tasks)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/tasks/", "host": ["{{base_url}}"], "path": ["tasks", ""] }
+      }
+    },
+    {
+      "name": "11. Групи (Groups)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/groups/", "host": ["{{base_url}}"], "path": ["groups", ""] }
+      }
+    },
+    {
+      "name": "12. Уроки (Lessons)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/lessons/", "host": ["{{base_url}}"], "path": ["lessons", ""] }
+      }
+    },
+    {
+      "name": "13. Школи (Schools)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/schools/", "host": ["{{base_url}}"], "path": ["schools", ""] }
+      }
+    },
+    {
+      "name": "14. Тренінги (Trainings)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/trainings/", "host": ["{{base_url}}"], "path": ["trainings", ""] }
+      }
+    },
+    {
+      "name": "15. Типи уроків (Lesson Types)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/lesson-types/", "host": ["{{base_url}}"], "path": ["lesson-types", ""] }
+      }
+    },
+    {
+      "name": "16. Наради (Staff Meetings)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/staff-meeting/", "host": ["{{base_url}}"], "path": ["staff-meeting", ""] }
+      }
+    },
+    {
+      "name": "17. Домашки (Homeworks)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/homework/", "host": ["{{base_url}}"], "path": ["homework", ""] }
+      }
+    },
+    {
+      "name": "18. Здачі домашок (Submissions)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/homework-submission/", "host": ["{{base_url}}"], "path": ["homework-submission", ""] }
+      }
+    },
+    {
+      "name": "19. Оцінки (Grades)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/grade/", "host": ["{{base_url}}"], "path": ["grade", ""] }
+      }
+    },
+    {
+      "name": "20. Відвідуваність (Attendance)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/attendance/", "host": ["{{base_url}}"], "path": ["attendance", ""] }
+      }
+    },
+    {
+      "name": "21. Колонки оцінок (Grade Columns)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/column/", "host": ["{{base_url}}"], "path": ["column", ""] }
+      }
+    },
+    {
+      "name": "22. Фідбеки (Feedbacks)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/feedbacks/", "host": ["{{base_url}}"], "path": ["feedbacks", ""] }
+      }
+    },
+    {
+      "name": "23. Ліди CRM (Leads)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/leads/", "host": ["{{base_url}}"], "path": ["leads", ""] }
+      }
+    },
+    {
+      "name": "24. Плани підписок (Sub Plans)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/sub-plan/", "host": ["{{base_url}}"], "path": ["sub-plan", ""] }
+      }
+    },
+    {
+      "name": "25. Підписки студентів (Student Subs)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Cookie", "value": "access-token={{access_token}}", "type": "text" }],
+        "url": { "raw": "{{base_url}}/student-sub/", "host": ["{{base_url}}"], "path": ["student-sub", ""] }
+      }
+    }
+  ]
+}

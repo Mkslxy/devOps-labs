@@ -1,0 +1,179 @@
+[
+{
+    "model": "classes.school",
+    "pk": 1,
+    "fields": {
+        "name": "ჯანდაბა",
+        "address": "მარგალიტი 123",
+        "city": "თბილისი",
+        "latitude": null,
+        "longitude": null
+    }
+},
+{
+    "model": "classes.school",
+    "pk": 2,
+    "fields": {
+        "name": "ჯანდაბა2",
+        "address": "მარგალიტი 123",
+        "city": "თბილისი",
+        "latitude": null,
+        "longitude": null
+    }
+},
+{
+    "model": "classes.school",
+    "pk": 3,
+    "fields": {
+        "name": "qwe",
+        "address": "მარგალიტი 123",
+        "city": "თბილისი",
+        "latitude": "41.704400",
+        "longitude": "44.804400"
+    }
+},
+{
+    "model": "classes.lessontype",
+    "pk": 1,
+    "fields": {
+        "name": "Короткий",
+        "slug": "dur60min",
+        "duration_minutes": 60
+    }
+},
+{
+    "model": "classes.lessontype",
+    "pk": 2,
+    "fields": {
+        "name": "Довгий",
+        "slug": "dur90min",
+        "duration_minutes": 90
+    }
+},
+{
+    "model": "finance.currency",
+    "pk": 1,
+    "fields": {
+        "code": "UAH",
+        "name": "Гривня",
+        "symbol": "₴"
+    }
+},
+{
+    "model": "finance.currency",
+    "pk": 2,
+    "fields": {
+        "code": "USD",
+        "name": "Долар США",
+        "symbol": "$"
+    }
+},
+{
+    "model": "finance.currency",
+    "pk": 3,
+    "fields": {
+        "code": "EUR",
+        "name": "Євро",
+        "symbol": "€"
+    }
+},
+{
+    "model": "finance.currency",
+    "pk": 4,
+    "fields": {
+        "code": "GBP",
+        "name": "Фунт стерлінгів",
+        "symbol": "£"
+    }
+},
+{
+    "model": "finance.currency",
+    "pk": 5,
+    "fields": {
+        "code": "PLN",
+        "name": "Польський злотий",
+        "symbol": "zł"
+    }
+},
+{
+    "model": "finance.paymentmethod",
+    "pk": 1,
+    "fields": {
+        "name": "LiqPay / Mono"
+    }
+},
+{
+    "model": "finance.paymentmethod",
+    "pk": 2,
+    "fields": {
+        "name": "Stripe"
+    }
+},
+{
+    "model": "finance.paymentmethod",
+    "pk": 3,
+    "fields": {
+        "name": "Готівка"
+    }
+},
+{
+    "model": "finance.category",
+    "pk": 1,
+    "fields": {
+        "name": "Маркетинг та Реклама"
+    }
+},
+{
+    "model": "finance.category",
+    "pk": 2,
+    "fields": {
+        "name": "IT Інфраструктура"
+    }
+},
+{
+    "model": "finance.category",
+    "pk": 3,
+    "fields": {
+        "name": "Оренда та Офіс"
+    }
+},
+{
+    "model": "finance.category",
+    "pk": 10,
+    "fields": {
+        "name": "Книги"
+    }
+},
+{
+    "model": "finance.subcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Таргет Facebook/Insta",
+        "category": 1
+    }
+},
+{
+    "model": "finance.subcategory",
+    "pk": 2,
+    "fields": {
+        "name": "Google Ads",
+        "category": 1
+    }
+},
+{
+    "model": "finance.subcategory",
+    "pk": 3,
+    "fields": {
+        "name": "Сервери AWS",
+        "category": 2
+    }
+},
+{
+    "model": "finance.subcategory",
+    "pk": 4,
+    "fields": {
+        "name": "Оренда приміщення",
+        "category": 3
+    }
+}
+]

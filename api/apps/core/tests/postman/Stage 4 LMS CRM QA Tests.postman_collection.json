@@ -1,0 +1,1067 @@
+{
+  "info": {
+    "_postman_id": "4baf7c16-c8e3-44b6-a19f-b6fa8e5b52bb",
+    "name": "Stage 4 LMS CRM QA Tests",
+    "description": "Core Postman tests for selected LMS/CRM endpoints from User, Classes, Courses, Homework, and Testing collections.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43345035",
+    "_collection_link": "https://go.postman.co/collection/43345035-4baf7c16-c8e3-44b6-a19f-b6fa8e5b52bb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "POST Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['message', 'user'],",
+                  "  properties: {",
+                  "    message: { type: 'string' },",
+                  "    user: { type: 'object' }",
+                  "  }",
+                  "};",
+                  "pm.test('Login response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "pm.test('Login returns success message', function () {",
+                  "  pm.expect(json.message).to.eql('success');",
+                  "});",
+                  "const accessCookie = pm.cookies.get('access-token');",
+                  "if (accessCookie) {",
+                  "  pm.collectionVariables.set('access_token', accessCookie);",
+                  "}",
+                  "if (json.access) {",
+                  "  pm.collectionVariables.set('access_token', json.access);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{login_email}}\",\n  \"password\": \"{{login_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Profile Me",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'email', 'full_name'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    email: { type: 'string' },",
+                  "    full_name: { type: 'string' },",
+                  "    role: { type: ['object', 'string', 'null'] }",
+                  "  }",
+                  "};",
+                  "pm.test('Profile response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/profile/me/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile",
+                "me",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "GET Courses",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  anyOf: [",
+                  "    { type: 'array' },",
+                  "    { type: 'object', properties: { results: { type: 'array' } } }",
+                  "  ]",
+                  "};",
+                  "pm.test('Courses list schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/course/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "course",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Course",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'title', 'description', 'price', 'level', 'is_active'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    title: { type: 'string' },",
+                  "    description: { type: 'string' },",
+                  "    price: { type: ['string', 'number'] },",
+                  "    level: { type: 'string' },",
+                  "    is_active: { type: 'boolean' }",
+                  "  }",
+                  "};",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('course_id', String(json.id));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Stage 4 QA Course {{$timestamp}}\",\n  \"description\": \"Created by Postman QA collection\",\n  \"subject_id\": {{subject_id}},\n  \"price\": \"1200.00\",\n  \"level\": \"A2\",\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/course/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "course",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Module",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201 Created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'title', 'course'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    title: { type: 'string' },",
+                  "    course: { type: ['integer', 'string'] }",
+                  "  }",
+                  "};",
+                  "pm.test('Module response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('module_id', String(json.id));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Stage 4 QA Module {{$timestamp}}\",\n  \"course\": {{course_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/module/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "module",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Topic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201 Created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'title', 'content_description', 'module'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    title: { type: 'string' },",
+                  "    content_description: { type: 'string' },",
+                  "    module: { type: ['integer', 'string'] }",
+                  "  }",
+                  "};",
+                  "pm.test('Topic response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('topic_id', String(json.id));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Stage 4 QA Topic {{$timestamp}}\",\n  \"content_description\": \"Created by Postman QA collection\",\n  \"module\": {{module_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/topic/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "topic",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Classes",
+      "item": [
+        {
+          "name": "GET Groups",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  anyOf: [",
+                  "    { type: 'array' },",
+                  "    { type: 'object', properties: { results: { type: 'array' } } }",
+                  "  ]",
+                  "};",
+                  "pm.test('Groups list schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "groups",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Group",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'name', 'status', 'age_group', 'knowledge_level', 'is_online'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    name: { type: 'string' },",
+                  "    status: { type: 'string' },",
+                  "    age_group: { type: 'string' },",
+                  "    knowledge_level: { type: 'string' },",
+                  "    is_online: { type: 'boolean' }",
+                  "  }",
+                  "};",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('group_id', String(json.id));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Stage 4 QA Group {{$timestamp}}\",\n  \"status\": \"active\",\n  \"age_group\": \"teens\",\n  \"knowledge_level\": \"beginner\",\n  \"is_online\": true,\n  \"teacher_id\": {{teacher_id}},\n  \"course_id\": {{course_id}},\n  \"school_id\": {{school_id}},\n  \"student_ids\": [{{student_id}}]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "groups",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Lesson",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'topic', 'start_time', 'lesson_type', 'group', 'teacher'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    topic: { type: 'string' },",
+                  "    start_time: { type: 'string' },",
+                  "    end_time: { type: ['string', 'null'] },",
+                  "    lesson_type: { type: ['object', 'null'] },",
+                  "    group: { type: ['object', 'null'] },",
+                  "    teacher: { type: ['object', 'null'] }",
+                  "  }",
+                  "};",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('lesson_id', String(json.id));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"topic\": \"Stage 4 QA Lesson {{$timestamp}}\",\n  \"description\": \"Created by Postman QA collection\",\n  \"start_time\": \"2026-12-31T10:00:00+02:00\",\n  \"lesson_type_id\": {{lesson_type_id}},\n  \"group_id\": {{group_id}},\n  \"teacher_id\": {{teacher_id}},\n  \"is_online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lessons/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lessons",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Lessons",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  anyOf: [",
+                  "    { type: 'array' },",
+                  "    { type: 'object', properties: { results: { type: 'array' } } }",
+                  "  ]",
+                  "};",
+                  "pm.test('Lessons list schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/lessons/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lessons",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Homework",
+      "item": [
+        {
+          "name": "POST Create Homework",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'title', 'deadline'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    title: { type: 'string' },",
+                  "    description: { type: ['string', 'null'] },",
+                  "    deadline: { type: 'string' },",
+                  "    lesson: { type: ['object', 'null'] },",
+                  "    group: { type: ['object', 'null'] },",
+                  "    student: { type: ['object', 'null'] }",
+                  "  }",
+                  "};",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('homework_id', String(json.id));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Stage 4 QA Homework {{$timestamp}}",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Created by Postman QA collection",
+                  "type": "text"
+                },
+                {
+                  "key": "deadline",
+                  "value": "2026-12-31T23:59:59+02:00",
+                  "type": "text"
+                },
+                {
+                  "key": "lesson_id",
+                  "value": "{{lesson_id}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/homework/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "homework",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Homework",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  anyOf: [",
+                  "    { type: 'array' },",
+                  "    { type: 'object', properties: { results: { type: 'array' } } }",
+                  "  ]",
+                  "};",
+                  "pm.test('Homework list schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/homework/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "homework",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Homework Submission",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'homework', 'student'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    homework: { type: ['object', 'null'] },",
+                  "    student: { type: ['object', 'null'] },",
+                  "    submission_text: { type: ['string', 'null'] },",
+                  "    grade: { type: ['object', 'null'] }",
+                  "  }",
+                  "};",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('homework_submission_id', String(json.id));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "homework_id",
+                  "value": "{{homework_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "submission_text",
+                  "value": "Stage 4 QA homework submission",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/homework-submission/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "homework-submission",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "item": [
+        {
+          "name": "POST Create Question",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201 Created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'text', 'points', 'type', 'options'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    text: { type: 'string' },",
+                  "    points: { type: ['integer', 'number'] },",
+                  "    type: { type: 'string' },",
+                  "    options: { type: 'array' }",
+                  "  }",
+                  "};",
+                  "pm.test('Question response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('question_id', String(json.id));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Stage 4 QA question {{$timestamp}}\",\n  \"type\": \"single_choice\",\n  \"points\": 5,\n  \"options\": [\n    {\n      \"option_text\": \"Incorrect\",\n      \"is_correct\": false\n    },\n    {\n      \"option_text\": \"Correct\",\n      \"is_correct\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/test-management/questions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "test-management",
+                "questions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Test",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201 Created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'title', 'description', 'current_version'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    title: { type: 'string' },",
+                  "    description: { type: 'string' },",
+                  "    current_version: { type: ['object', 'null'] }",
+                  "  }",
+                  "};",
+                  "pm.test('Test response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json.id) pm.collectionVariables.set('test_id', String(json.id));",
+                  "if (json.current_version && json.current_version.id) {",
+                  "  pm.collectionVariables.set('test_version_id', String(json.current_version.id));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Stage 4 QA Test {{$timestamp}}\",\n  \"description\": \"Created by Postman QA collection\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/test-management/tests/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "test-management",
+                "tests",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Add Questions To Test Version",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response time is under 500ms', function () {",
+                  "  pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});",
+                  "const schema = {",
+                  "  type: 'object',",
+                  "  required: ['id', 'questions'],",
+                  "  properties: {",
+                  "    id: { type: ['integer', 'string'] },",
+                  "    questions: { type: 'array' }",
+                  "  }",
+                  "};",
+                  "pm.test('Test version response schema is valid', function () {",
+                  "  pm.response.to.have.jsonSchema(schema);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question_ids\": [{{question_id}}]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/test-management/test-versions/{{test_version_id}}/add-questions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "test-management",
+                "test-versions",
+                "{{test_version_id}}",
+                "add-questions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "login_email",
+      "value": "admin@example.com"
+    },
+    {
+      "key": "login_password",
+      "value": "password123"
+    },
+    {
+      "key": "school_id",
+      "value": "1"
+    },
+    {
+      "key": "teacher_id",
+      "value": "1"
+    },
+    {
+      "key": "student_id",
+      "value": "1"
+    },
+    {
+      "key": "course_id",
+      "value": "1"
+    },
+    {
+      "key": "subject_id",
+      "value": "1"
+    },
+    {
+      "key": "module_id",
+      "value": "1"
+    },
+    {
+      "key": "topic_id",
+      "value": "1"
+    },
+    {
+      "key": "group_id",
+      "value": "1"
+    },
+    {
+      "key": "lesson_type_id",
+      "value": "1"
+    },
+    {
+      "key": "lesson_id",
+      "value": "1"
+    },
+    {
+      "key": "homework_id",
+      "value": "1"
+    },
+    {
+      "key": "homework_submission_id",
+      "value": "1"
+    },
+    {
+      "key": "question_id",
+      "value": "1"
+    },
+    {
+      "key": "test_id",
+      "value": "1"
+    },
+    {
+      "key": "test_version_id",
+      "value": "1"
+    }
+  ]
+}

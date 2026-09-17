@@ -1,0 +1,183 @@
+[
+{
+    "model": "courses.material",
+    "pk": 7,
+    "fields": {
+        "topic": null,
+        "title": "1 q",
+        "title_uk": "1 q",
+        "title_en": null,
+        "description": "2 w",
+        "access_level": "public",
+        "created_at": "2025-12-13T12:28:54.577Z",
+        "updated_at": "2025-12-13T12:28:54.577Z",
+        "created_by": null
+    }
+},
+{
+    "model": "courses.material",
+    "pk": 8,
+    "fields": {
+        "topic": null,
+        "title": "1 q",
+        "title_uk": "1 q",
+        "title_en": null,
+        "description": "2 w",
+        "access_level": "public",
+        "created_at": "2025-12-13T12:36:38.709Z",
+        "updated_at": "2025-12-13T12:36:38.709Z",
+        "created_by": 27
+    }
+},
+{
+    "model": "courses.materialfile",
+    "pk": 14,
+    "fields": {
+        "file": "materials/2025/12/Знімок_екрана_2025-12-07_235425_qoWkDKx.png",
+        "name": "Знімок екрана 2025-12-07 235425.png",
+        "document": 7
+    }
+},
+{
+    "model": "courses.materialfile",
+    "pk": 15,
+    "fields": {
+        "file": "materials/2025/12/Знімок_екрана_2025-12-04_230329_5HP4IeK.png",
+        "name": "Знімок екрана 2025-12-04 230329.png",
+        "document": 7
+    }
+},
+{
+    "model": "courses.materialfile",
+    "pk": 16,
+    "fields": {
+        "file": "materials/2025/12/Знімок_екрана_2025-12-07_235425_kfxEkFd.png",
+        "name": "Знімок екрана 2025-12-07 235425.png",
+        "document": 8
+    }
+},
+{
+    "model": "courses.materialfile",
+    "pk": 17,
+    "fields": {
+        "file": "materials/2025/12/Знімок_екрана_2025-12-04_230329_fbFDBRg.png",
+        "name": "Знімок екрана 2025-12-04 230329.png",
+        "document": 8
+    }
+},
+{
+    "model": "courses.materiallink",
+    "pk": 6,
+    "fields": {
+        "url": "https://wikipedia.org",
+        "name": "Wiki",
+        "is_video_embed": false,
+        "document": 7
+    }
+},
+{
+    "model": "courses.materiallink",
+    "pk": 7,
+    "fields": {
+        "url": "https://wikipedia.org",
+        "name": "Wiki",
+        "is_video_embed": false,
+        "document": 8
+    }
+},
+{
+    "model": "courses.task",
+    "pk": 2,
+    "fields": {
+        "created_at": "2026-01-30T19:15:14.455Z",
+        "updated_at": "2026-01-30T19:15:14.455Z",
+        "topic": null,
+        "title": "1 q",
+        "description": "2 w",
+        "deadline": null,
+        "created_by": 29
+    }
+},
+{
+    "model": "courses.task",
+    "pk": 3,
+    "fields": {
+        "created_at": "2026-01-30T19:15:24.398Z",
+        "updated_at": "2026-01-30T19:15:24.398Z",
+        "topic": 4,
+        "title": "1 q",
+        "description": "2 w",
+        "deadline": null,
+        "created_by": 29
+    }
+},
+{
+    "model": "courses.task",
+    "pk": 4,
+    "fields": {
+        "created_at": "2026-01-30T19:16:00.376Z",
+        "updated_at": "2026-01-30T19:16:00.376Z",
+        "topic": 4,
+        "title": "1 q",
+        "description": "2 w",
+        "deadline": null,
+        "created_by": 29
+    }
+},
+{
+    "model": "courses.taskfile",
+    "pk": 3,
+    "fields": {
+        "file": "Task/2026/01/Знімок_екрана_2025-12-07_235425.png",
+        "name": "Знімок екрана 2025-12-07 235425.png",
+        "document": 2
+    }
+},
+{
+    "model": "courses.taskfile",
+    "pk": 4,
+    "fields": {
+        "file": "Task/2026/01/Знімок_екрана_2025-12-04_230329.png",
+        "name": "Знімок екрана 2025-12-04 230329.png",
+        "document": 2
+    }
+},
+{
+    "model": "courses.taskfile",
+    "pk": 5,
+    "fields": {
+        "file": "Task/2026/01/Знімок_екрана_2025-12-07_235425_o6xQ7Zs.png",
+        "name": "Знімок екрана 2025-12-07 235425.png",
+        "document": 4
+    }
+},
+{
+    "model": "courses.taskfile",
+    "pk": 6,
+    "fields": {
+        "file": "Task/2026/01/Знімок_екрана_2025-12-04_230329_htEA0Fq.png",
+        "name": "Знімок екрана 2025-12-04 230329.png",
+        "document": 4
+    }
+},
+{
+    "model": "courses.tasklink",
+    "pk": 2,
+    "fields": {
+        "url": "https://wikipedia.org",
+        "name": "Wiki",
+        "is_video_embed": false,
+        "document": 2
+    }
+},
+{
+    "model": "courses.tasklink",
+    "pk": 3,
+    "fields": {
+        "url": "https://wikipedia.org",
+        "name": "Wiki",
+        "is_video_embed": false,
+        "document": 4
+    }
+}
+]

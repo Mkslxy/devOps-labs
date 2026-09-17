@@ -1,0 +1,219 @@
+[
+{
+    "model": "finance.transaction",
+    "pk": 1,
+    "fields": {
+        "created_at": "2026-03-05T10:00:00Z",
+        "updated_at": "2026-03-05T10:00:00Z",
+        "amount": "15000.00",
+        "type": "expense",
+        "description": "Оплата за рекламу в інсті (Березень)",
+        "category": 1,
+        "subcategory": 1,
+        "payment_method": 1,
+        "currency": 1,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 2,
+    "fields": {
+        "created_at": "2026-03-10T12:00:00Z",
+        "updated_at": "2026-03-10T12:00:00Z",
+        "amount": "5000.00",
+        "type": "expense",
+        "description": "Оплата серверів та інфраструктури",
+        "category": 2,
+        "subcategory": 3,
+        "payment_method": 2,
+        "currency": 1,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 3,
+    "fields": {
+        "created_at": "2026-03-15T14:00:00Z",
+        "updated_at": "2026-03-15T14:00:00Z",
+        "amount": "250.00",
+        "type": "expense",
+        "description": "Дрібні витрати в USD (Zoom, Notion)",
+        "category": 2,
+        "subcategory": null,
+        "payment_method": 2,
+        "currency": 2,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 4,
+    "fields": {
+        "created_at": "2026-03-01T09:00:00Z",
+        "updated_at": "2026-03-01T09:00:00Z",
+        "amount": "50000.00",
+        "type": "income",
+        "description": "Бонус від партнерів / Грант",
+        "category": null,
+        "subcategory": null,
+        "payment_method": 1,
+        "currency": 1,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 101,
+    "fields": {
+        "created_at": "2026-03-05T11:00:00Z",
+        "updated_at": "2026-03-05T11:00:00Z",
+        "amount": "25000.00",
+        "type": "expense",
+        "description": "Book transaction #1",
+        "category": 10,
+        "subcategory": null,
+        "payment_method": 1,
+        "currency": 1,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 102,
+    "fields": {
+        "created_at": "2026-03-10T14:30:00Z",
+        "updated_at": "2026-03-10T14:30:00Z",
+        "amount": "38000.00",
+        "type": "expense",
+        "description": "Book transaction #2",
+        "category": 10,
+        "subcategory": null,
+        "payment_method": 1,
+        "currency": 1,
+        "school": null
+    }
+},
+{
+    "model": "finance.transaction",
+    "pk": 103,
+    "fields": {
+        "created_at": "2026-03-15T09:15:00Z",
+        "updated_at": "2026-03-15T09:15:00Z",
+        "amount": "440.00",
+        "type": "expense",
+        "description": "Book transaction #3",
+        "category": 10,
+        "subcategory": null,
+        "payment_method": 2,
+        "currency": 2,
+        "school": null
+    }
+},
+{
+    "model": "finance.payment",
+    "pk": 1,
+    "fields": {
+        "created_at": "2026-02-18T10:45:41.810Z",
+        "updated_at": "2026-02-18T10:46:19.175Z",
+        "order_reference": "SUB-7BFA6DE5-1771411541",
+        "payment_type": "gift",
+        "user": 29,
+        "plan": 1,
+        "target_subscription": null,
+        "extra_lessons": null,
+        "guest_email": "nikitaz9251015@gmail.com",
+        "target_gift": 1,
+        "amount": "199.99",
+        "currency": "UAH",
+        "status": "approved",
+        "response_code": "1100",
+        "closed_at": "2026-02-18T10:46:19.174Z"
+    }
+},
+{
+    "model": "finance.payment",
+    "pk": 2,
+    "fields": {
+        "created_at": "2026-03-02T10:00:00Z",
+        "updated_at": "2026-03-02T10:05:00Z",
+        "order_reference": "SUB-ABC12345",
+        "payment_type": "new_sub",
+        "user": 29,
+        "plan": null,
+        "target_subscription": null,
+        "extra_lessons": null,
+        "guest_email": null,
+        "target_gift": null,
+        "amount": "12000.00",
+        "currency": "UAH",
+        "status": "approved",
+        "response_code": null,
+        "closed_at": "2026-03-02T10:05:00Z"
+    }
+},
+{
+    "model": "finance.payment",
+    "pk": 3,
+    "fields": {
+        "created_at": "2026-03-08T11:00:00Z",
+        "updated_at": "2026-03-08T11:05:00Z",
+        "order_reference": "SUB-DEF67890",
+        "payment_type": "new_sub",
+        "user": 29,
+        "plan": null,
+        "target_subscription": null,
+        "extra_lessons": null,
+        "guest_email": null,
+        "target_gift": null,
+        "amount": "8000.00",
+        "currency": "UAH",
+        "status": "approved",
+        "response_code": null,
+        "closed_at": "2026-03-08T11:05:00Z"
+    }
+},
+{
+    "model": "finance.payment",
+    "pk": 4,
+    "fields": {
+        "created_at": "2026-03-12T15:00:00Z",
+        "updated_at": "2026-03-12T15:05:00Z",
+        "order_reference": "TOPUP-XYZ098",
+        "payment_type": "top_up",
+        "user": 29,
+        "plan": null,
+        "target_subscription": null,
+        "extra_lessons": null,
+        "guest_email": null,
+        "target_gift": null,
+        "amount": "200.00",
+        "currency": "USD",
+        "status": "approved",
+        "response_code": null,
+        "closed_at": "2026-03-12T15:05:00Z"
+    }
+},
+{
+    "model": "finance.giftcertificate",
+    "pk": 1,
+    "fields": {
+        "created_at": "2026-02-18T10:45:41.792Z",
+        "updated_at": "2026-02-18T10:45:41.792Z",
+        "code": "GIFT-67F50AD9",
+        "plan": 1,
+        "amount": "199.99",
+        "purchaser": 29,
+        "purchaser_name": "Olexandr Super Under",
+        "purchaser_email": "nikitaz9251015@gmail.com",
+        "issued_to_email": "nikitaz9251015@gmail.com",
+        "issued_to_name": "Nikita Z",
+        "is_paid": true,
+        "is_used": false,
+        "redeemed_by": null,
+        "redeemed_at": null,
+        "expires_at": "2026-03-20T10:46:19.182Z"
+    }
+}
+]

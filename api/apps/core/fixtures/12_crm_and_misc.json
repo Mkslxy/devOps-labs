@@ -1,0 +1,287 @@
+[
+{
+    "model": "crm.lead",
+    "pk": 1,
+    "fields": {
+        "created_at": "2026-01-28T22:43:42.475Z",
+        "updated_at": "2026-01-28T22:43:42.476Z",
+        "name": "Naname Fufulle",
+        "email": null,
+        "phone": "+1234567890",
+        "source": "",
+        "status": "new",
+        "notes": "",
+        "manager": null,
+        "city": null
+    }
+},
+{
+    "model": "crm.lead",
+    "pk": 3,
+    "fields": {
+        "created_at": "2026-02-11T18:05:39.106Z",
+        "updated_at": "2026-02-11T18:05:39.106Z",
+        "name": "Naname Fufulle",
+        "email": null,
+        "phone": "+12345627890",
+        "source": "",
+        "status": "new",
+        "notes": "",
+        "manager": null,
+        "city": null
+    }
+},
+{
+    "model": "crm.lead",
+    "pk": 4,
+    "fields": {
+        "created_at": "2026-02-11T18:09:10.601Z",
+        "updated_at": "2026-02-11T18:09:10.601Z",
+        "name": "Naname Fufulle",
+        "email": null,
+        "phone": "+1234561327890",
+        "source": "",
+        "status": "new",
+        "notes": "",
+        "manager": null,
+        "city": null
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 2,
+    "fields": {
+        "created_at": "2026-01-26T19:11:05.852Z",
+        "updated_at": "2026-01-26T19:11:05.852Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "000",
+        "phone_national_number": "000",
+        "phone_normalized": "00000",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "new",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": null,
+        "processed_by": null,
+        "manager_comment": ""
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 3,
+    "fields": {
+        "created_at": "2026-01-28T22:41:58.681Z",
+        "updated_at": "2026-01-28T22:43:42.493Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "4567890",
+        "phone_normalized": "+1234567890",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "converted",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": 1,
+        "processed_by": null,
+        "manager_comment": ""
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 4,
+    "fields": {
+        "created_at": "2026-02-11T17:57:01.694Z",
+        "updated_at": "2026-02-11T17:57:01.694Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "4567890",
+        "phone_normalized": "",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "new",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": null,
+        "processed_by": null,
+        "manager_comment": "apflpsdkllaf[plsdp[gklld]s"
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 5,
+    "fields": {
+        "created_at": "2026-02-11T17:58:01.051Z",
+        "updated_at": "2026-02-11T17:58:01.051Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "4567890",
+        "phone_normalized": "",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "new",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": null,
+        "processed_by": null,
+        "manager_comment": "apflpsdkllaf[plsdp[gklld]s"
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 6,
+    "fields": {
+        "created_at": "2026-02-11T17:58:54.201Z",
+        "updated_at": "2026-02-11T17:58:54.201Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "4567890",
+        "phone_normalized": "+1234567890",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "new",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": null,
+        "processed_by": null,
+        "manager_comment": ""
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 7,
+    "fields": {
+        "created_at": "2026-02-11T18:05:35.893Z",
+        "updated_at": "2026-02-11T18:05:39.110Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "45627890",
+        "phone_normalized": "+12345627890",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "converted",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": 3,
+        "processed_by": null,
+        "manager_comment": "apflpsdkllaf[plsdp[gklld]s"
+    }
+},
+{
+    "model": "support.callbackrequest",
+    "pk": 8,
+    "fields": {
+        "created_at": "2026-02-11T18:08:09.425Z",
+        "updated_at": "2026-02-11T18:09:10.603Z",
+        "full_name": "Naname Fufulle",
+        "email": null,
+        "phone_country_code": "+123",
+        "phone_national_number": "4561327890",
+        "phone_normalized": "+1234561327890",
+        "message": "",
+        "contact_preference": "phone",
+        "other_contact_preference": null,
+        "status": "converted",
+        "callback_page": "https://fiatlux.com/home",
+        "city": null,
+        "converted_lead": 4,
+        "processed_by": null,
+        "manager_comment": "apflpsdkllaf[plsdp[gklld]s"
+    }
+},
+{
+    "model": "support.feedback",
+    "pk": 3,
+    "fields": {
+        "type": "FEEDBACK",
+        "lesson": 95,
+        "course": null,
+        "user": null,
+        "rating": 5,
+        "comment": "",
+        "created_by": 29,
+        "created_at": "2026-02-12T18:22:00.228Z"
+    }
+},
+{
+    "model": "support.feedback",
+    "pk": 4,
+    "fields": {
+        "type": "FEEDBACK",
+        "lesson": null,
+        "course": 8,
+        "user": null,
+        "rating": 5,
+        "comment": "",
+        "created_by": 29,
+        "created_at": "2026-02-12T18:22:20.625Z"
+    }
+},
+{
+    "model": "support.feedback",
+    "pk": 5,
+    "fields": {
+        "type": "FEEDBACK",
+        "lesson": null,
+        "course": 8,
+        "user": null,
+        "rating": 5,
+        "comment": "",
+        "created_by": 29,
+        "created_at": "2026-03-30T08:49:12.659Z"
+    }
+},
+{
+    "model": "support.feedback",
+    "pk": 6,
+    "fields": {
+        "type": "COMPLAINT",
+        "lesson": null,
+        "course": 8,
+        "user": null,
+        "rating": 5,
+        "comment": "",
+        "created_by": 29,
+        "created_at": "2026-03-30T08:49:27.574Z"
+    }
+},
+{
+    "model": "users.emailverification",
+    "pk": 2,
+    "fields": {
+        "email": "bananbka0.19@gmail.com",
+        "code": "955149",
+        "created_at": "2025-12-09T10:55:42.031Z"
+    }
+},
+{
+    "model": "users.emailverification",
+    "pk": 3,
+    "fields": {
+        "email": "bananbka0.20@gmail.com",
+        "code": "400512",
+        "created_at": "2025-12-11T14:05:22.989Z"
+    }
+},
+{
+    "model": "users.emailverification",
+    "pk": 5,
+    "fields": {
+        "email": "bananbka0.2@gmail.com",
+        "code": "290015",
+        "created_at": "2025-12-11T22:57:37.035Z"
+    }
+}
+]

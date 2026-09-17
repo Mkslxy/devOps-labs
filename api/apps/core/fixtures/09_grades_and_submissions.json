@@ -1,0 +1,1170 @@
+[
+    {
+        "model": "gradebook.grade",
+        "pk": 100,
+        "fields": {
+            "column": 100,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-20T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 101,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-20T22:02:58Z",
+            "column": 100,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 102,
+        "fields": {
+            "column": 100,
+            "category": "regular",
+            "student": 30,
+            "value": 7.0,
+            "comment": "",
+            "created_at": "2026-05-20T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 103,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-20T22:02:58Z",
+            "column": 100,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 104,
+        "fields": {
+            "column": 101,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 105,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-22T22:02:58Z",
+            "column": 101,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 106,
+        "fields": {
+            "column": 101,
+            "category": "regular",
+            "student": 30,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 107,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-22T22:02:58Z",
+            "column": 101,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1108,
+        "fields": {
+            "column": 1101,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 100,
+        "fields": {
+            "homework": 100,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1108,
+            "created_at": "2026-05-22T22:02:58Z",
+            "updated_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1109,
+        "fields": {
+            "column": 1101,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 101,
+        "fields": {
+            "homework": 100,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1109,
+            "created_at": "2026-05-22T22:02:58Z",
+            "updated_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 110,
+        "fields": {
+            "column": 102,
+            "category": "regular",
+            "student": 28,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-05-24T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 111,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-24T22:02:58Z",
+            "column": 102,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 112,
+        "fields": {
+            "column": 102,
+            "category": "regular",
+            "student": 30,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-24T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 113,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-24T22:02:58Z",
+            "column": 102,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 114,
+        "fields": {
+            "column": 103,
+            "category": "regular",
+            "student": 28,
+            "value": 12.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-26T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 115,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-26T22:02:58Z",
+            "column": 103,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 116,
+        "fields": {
+            "column": 103,
+            "category": "regular",
+            "student": 30,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-05-26T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 117,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-26T22:02:58Z",
+            "column": 103,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 118,
+        "fields": {
+            "column": 104,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 119,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-28T22:02:58Z",
+            "column": 104,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 120,
+        "fields": {
+            "column": 104,
+            "category": "regular",
+            "student": 30,
+            "value": 8.0,
+            "comment": "",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 121,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-28T22:02:58Z",
+            "column": 104,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1122,
+        "fields": {
+            "column": 1104,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 102,
+        "fields": {
+            "homework": 101,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1122,
+            "created_at": "2026-05-28T22:02:58Z",
+            "updated_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1123,
+        "fields": {
+            "column": 1104,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 103,
+        "fields": {
+            "homework": 101,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1123,
+            "created_at": "2026-05-28T22:02:58Z",
+            "updated_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 124,
+        "fields": {
+            "column": 105,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-30T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 125,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-30T22:02:58Z",
+            "column": 105,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 126,
+        "fields": {
+            "column": 105,
+            "category": "regular",
+            "student": 30,
+            "value": 7.0,
+            "comment": "",
+            "created_at": "2026-05-30T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 127,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-30T22:02:58Z",
+            "column": 105,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 128,
+        "fields": {
+            "column": 106,
+            "category": "regular",
+            "student": 28,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-06-01T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 129,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-01T22:02:58Z",
+            "column": 106,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 130,
+        "fields": {
+            "column": 106,
+            "category": "regular",
+            "student": 30,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-01T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 131,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-01T22:02:58Z",
+            "column": 106,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 132,
+        "fields": {
+            "column": 107,
+            "category": "regular",
+            "student": 28,
+            "value": 12.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 133,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-03T22:02:58Z",
+            "column": 107,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 134,
+        "fields": {
+            "column": 107,
+            "category": "regular",
+            "student": 30,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 135,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-03T22:02:58Z",
+            "column": 107,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1136,
+        "fields": {
+            "column": 1107,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 104,
+        "fields": {
+            "homework": 102,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1136,
+            "created_at": "2026-06-03T22:02:58Z",
+            "updated_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1137,
+        "fields": {
+            "column": 1107,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 105,
+        "fields": {
+            "homework": 102,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1137,
+            "created_at": "2026-06-03T22:02:58Z",
+            "updated_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 138,
+        "fields": {
+            "column": 108,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-05T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 139,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-05T22:02:58Z",
+            "column": 108,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 140,
+        "fields": {
+            "column": 108,
+            "category": "regular",
+            "student": 30,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-06-05T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 141,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-05T22:02:58Z",
+            "column": 108,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 142,
+        "fields": {
+            "column": 109,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-07T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 143,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-07T22:02:58Z",
+            "column": 109,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 144,
+        "fields": {
+            "column": 109,
+            "category": "regular",
+            "student": 30,
+            "value": 8.0,
+            "comment": "",
+            "created_at": "2026-06-07T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 145,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-07T22:02:58Z",
+            "column": 109,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 146,
+        "fields": {
+            "column": 115,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-20T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 147,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-20T22:02:58Z",
+            "column": 115,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 148,
+        "fields": {
+            "column": 115,
+            "category": "regular",
+            "student": 30,
+            "value": 7.0,
+            "comment": "",
+            "created_at": "2026-05-20T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 149,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-20T22:02:58Z",
+            "column": 115,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 150,
+        "fields": {
+            "column": 116,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 151,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-22T22:02:58Z",
+            "column": 116,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 152,
+        "fields": {
+            "column": 116,
+            "category": "regular",
+            "student": 30,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 153,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-22T22:02:58Z",
+            "column": 116,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1154,
+        "fields": {
+            "column": 1116,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 106,
+        "fields": {
+            "homework": 103,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1154,
+            "created_at": "2026-05-22T22:02:58Z",
+            "updated_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1155,
+        "fields": {
+            "column": 1116,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 107,
+        "fields": {
+            "homework": 103,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1155,
+            "created_at": "2026-05-22T22:02:58Z",
+            "updated_at": "2026-05-22T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 156,
+        "fields": {
+            "column": 117,
+            "category": "regular",
+            "student": 28,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-05-24T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 157,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-24T22:02:58Z",
+            "column": 117,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 158,
+        "fields": {
+            "column": 117,
+            "category": "regular",
+            "student": 30,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-24T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 159,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-24T22:02:58Z",
+            "column": 117,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 160,
+        "fields": {
+            "column": 118,
+            "category": "regular",
+            "student": 28,
+            "value": 12.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-26T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 161,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-26T22:02:58Z",
+            "column": 118,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 162,
+        "fields": {
+            "column": 118,
+            "category": "regular",
+            "student": 30,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-05-26T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 163,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-26T22:02:58Z",
+            "column": 118,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 164,
+        "fields": {
+            "column": 119,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 165,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-28T22:02:58Z",
+            "column": 119,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 166,
+        "fields": {
+            "column": 119,
+            "category": "regular",
+            "student": 30,
+            "value": 8.0,
+            "comment": "",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 167,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-28T22:02:58Z",
+            "column": 119,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1168,
+        "fields": {
+            "column": 1119,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 108,
+        "fields": {
+            "homework": 104,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1168,
+            "created_at": "2026-05-28T22:02:58Z",
+            "updated_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1169,
+        "fields": {
+            "column": 1119,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 109,
+        "fields": {
+            "homework": 104,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1169,
+            "created_at": "2026-05-28T22:02:58Z",
+            "updated_at": "2026-05-28T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 170,
+        "fields": {
+            "column": 120,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-05-30T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 171,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-05-30T22:02:58Z",
+            "column": 120,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 172,
+        "fields": {
+            "column": 120,
+            "category": "regular",
+            "student": 30,
+            "value": 7.0,
+            "comment": "",
+            "created_at": "2026-05-30T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 173,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-05-30T22:02:58Z",
+            "column": 120,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 174,
+        "fields": {
+            "column": 121,
+            "category": "regular",
+            "student": 28,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-06-01T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 175,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-01T22:02:58Z",
+            "column": 121,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 176,
+        "fields": {
+            "column": 121,
+            "category": "regular",
+            "student": 30,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-01T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 177,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-01T22:02:58Z",
+            "column": 121,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 178,
+        "fields": {
+            "column": 122,
+            "category": "regular",
+            "student": 28,
+            "value": 12.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 179,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-03T22:02:58Z",
+            "column": 122,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 180,
+        "fields": {
+            "column": 122,
+            "category": "regular",
+            "student": 30,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 181,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-03T22:02:58Z",
+            "column": 122,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1182,
+        "fields": {
+            "column": 1122,
+            "category": "homework",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 110,
+        "fields": {
+            "homework": 105,
+            "student": 28,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1182,
+            "created_at": "2026-06-03T22:02:58Z",
+            "updated_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 1183,
+        "fields": {
+            "column": 1122,
+            "category": "homework",
+            "student": 30,
+            "value": 9.0,
+            "comment": "Вчасно і правильно",
+            "created_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "homework.homeworksubmission",
+        "pk": 111,
+        "fields": {
+            "homework": 105,
+            "student": 30,
+            "submission_text": "Ось моє виконане ДЗ.",
+            "grade": 1183,
+            "created_at": "2026-06-03T22:02:58Z",
+            "updated_at": "2026-06-03T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 184,
+        "fields": {
+            "column": 123,
+            "category": "regular",
+            "student": 28,
+            "value": 11.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-05T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 185,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-05T22:02:58Z",
+            "column": 123,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 186,
+        "fields": {
+            "column": 123,
+            "category": "regular",
+            "student": 30,
+            "value": 9.0,
+            "comment": "",
+            "created_at": "2026-06-05T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 187,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-05T22:02:58Z",
+            "column": 123,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 188,
+        "fields": {
+            "column": 124,
+            "category": "regular",
+            "student": 28,
+            "value": 10.0,
+            "comment": "Добре!",
+            "created_at": "2026-06-07T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 189,
+        "fields": {
+            "student": 28,
+            "created_at": "2026-06-07T22:02:58Z",
+            "column": 124,
+            "category": "present"
+        }
+    },
+    {
+        "model": "gradebook.grade",
+        "pk": 190,
+        "fields": {
+            "column": 124,
+            "category": "regular",
+            "student": 30,
+            "value": 8.0,
+            "comment": "",
+            "created_at": "2026-06-07T22:02:58Z"
+        }
+    },
+    {
+        "model": "gradebook.attendance",
+        "pk": 191,
+        "fields": {
+            "student": 30,
+            "created_at": "2026-06-07T22:02:58Z",
+            "column": 124,
+            "category": "present"
+        }
+    }
+]

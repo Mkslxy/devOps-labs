@@ -1,0 +1,663 @@
+[
+{
+    "model": "users.permission",
+    "pk": 45,
+    "fields": {
+        "slug": "users.read",
+        "description": "Читання даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 46,
+    "fields": {
+        "slug": "users.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 47,
+    "fields": {
+        "slug": "courses.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 48,
+    "fields": {
+        "slug": "courses.manage_all",
+        "description": "Зміна чужих даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 49,
+    "fields": {
+        "slug": "groups.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 50,
+    "fields": {
+        "slug": "groups.read",
+        "description": "Читання даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 51,
+    "fields": {
+        "slug": "lessons.read",
+        "description": "Читання даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 52,
+    "fields": {
+        "slug": "lessons.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 53,
+    "fields": {
+        "slug": "lessons.manage_all",
+        "description": "Зміна чужих даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 54,
+    "fields": {
+        "slug": "tests.read",
+        "description": "Читання даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 55,
+    "fields": {
+        "slug": "tests.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 56,
+    "fields": {
+        "slug": "trainings.read",
+        "description": "Читання даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 57,
+    "fields": {
+        "slug": "trainings.write",
+        "description": "Зміна даних"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 58,
+    "fields": {
+        "slug": "lesson-plans.check",
+        "description": "Перевірка планів уроків"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 59,
+    "fields": {
+        "slug": "homework.read",
+        "description": "homework."
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 60,
+    "fields": {
+        "slug": "homework.write",
+        "description": "homework."
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 61,
+    "fields": {
+        "slug": "homework.check",
+        "description": "homework."
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 62,
+    "fields": {
+        "slug": "homework.read_teacher",
+        "description": "homework."
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 63,
+    "fields": {
+        "slug": "tests.read_teacher",
+        "description": "test"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 64,
+    "fields": {
+        "slug": "gradebook.read",
+        "description": "gradebook"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 65,
+    "fields": {
+        "slug": "gradebook.write",
+        "description": "gradebook"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 66,
+    "fields": {
+        "slug": "gradebook.read_teacher",
+        "description": "gradebook"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 67,
+    "fields": {
+        "slug": "callback-request.write",
+        "description": "leads"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 68,
+    "fields": {
+        "slug": "callback-request.read",
+        "description": "leads"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 69,
+    "fields": {
+        "slug": "stats.read_teacher",
+        "description": "stats"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 70,
+    "fields": {
+        "slug": "stats.manage_all",
+        "description": "stats"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 71,
+    "fields": {
+        "slug": "leads.read",
+        "description": "leads"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 72,
+    "fields": {
+        "slug": "leads.write",
+        "description": "leads"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 73,
+    "fields": {
+        "slug": "tests.manage_onboardings",
+        "description": "tests"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 74,
+    "fields": {
+        "slug": "tests.manage_all",
+        "description": "tests"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 75,
+    "fields": {
+        "slug": "staff_meeting.read",
+        "description": "staff_meeting"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 76,
+    "fields": {
+        "slug": "staff_meeting.write",
+        "description": "staff_meeting"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 77,
+    "fields": {
+        "slug": "staff_meeting.manage_all",
+        "description": "staff_meeting"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 78,
+    "fields": {
+        "slug": "schools.manage_all",
+        "description": "schools"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 79,
+    "fields": {
+        "slug": "gradebook.manage_all",
+        "description": "gradebook"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 80,
+    "fields": {
+        "slug": "homework.manage_all",
+        "description": "homework."
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 81,
+    "fields": {
+        "slug": "telegram.broadcast_own_groups",
+        "description": "telegram"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 82,
+    "fields": {
+        "slug": "excel.export",
+        "description": "export"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 83,
+    "fields": {
+        "slug": "pnl.read",
+        "description": "pnl"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 84,
+    "fields": {
+        "slug": "pnl.write",
+        "description": "pnl"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 85,
+    "fields": {
+        "slug": "tasks.read",
+        "description": "tasks"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 86,
+    "fields": {
+        "slug": "tasks.write",
+        "description": "tasks"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 87,
+    "fields": {
+        "slug": "tasks.manage_all",
+        "description": "tasks"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 88,
+    "fields": {
+        "slug": "subs.write",
+        "description": "subs"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 89,
+    "fields": {
+        "slug": "subs.manage_all",
+        "description": "subs"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 90,
+    "fields": {
+        "slug": "payments.read",
+        "description": "q"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 91,
+    "fields": {
+        "slug": "debts.read",
+        "description": "q"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 92,
+    "fields": {
+        "slug": "salary.read",
+        "description": "salary.read"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 93,
+    "fields": {
+        "slug": "salary.write",
+        "description": "salary.write"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 94,
+    "fields": {
+        "slug": "payout.read",
+        "description": "payout"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 95,
+    "fields": {
+        "slug": "payout.write",
+        "description": "payout"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 96,
+    "fields": {
+        "slug": "payout_request.read",
+        "description": "payout_request"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 97,
+    "fields": {
+        "slug": "payout_request.read_manager",
+        "description": "payout_request"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 98,
+    "fields": {
+        "slug": "payout_request.write",
+        "description": "payout_request"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 99,
+    "fields": {
+        "slug": "payout_request.manage_all",
+        "description": "payout_request"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 100,
+    "fields": {
+        "slug": "reports.read",
+        "description": "qwe"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 101,
+    "fields": {
+        "slug": "reports.write",
+        "description": "qwe"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 102,
+    "fields": {
+        "slug": "reports.submit",
+        "description": "qwe"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 103,
+    "fields": {
+        "slug": "magic-import.tests",
+        "description": "magic-import.tests"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 104,
+    "fields": {
+        "slug": "magic-import.courses",
+        "description": "magic-import.courses"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 105,
+    "fields": {
+        "slug": "books.dashboard",
+        "description": "books.dashboard"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 106,
+    "fields": {
+        "slug": "magic-import.finance",
+        "description": "magic-import.finance"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 107,
+    "fields": {
+        "slug": "feedbacks.manage_all",
+        "description": "feedbacks.manage_all"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 108,
+    "fields": {
+        "slug": "surveys.read",
+        "description": "surveys.read"
+    }
+},
+{
+    "model": "users.permission",
+    "pk": 109,
+    "fields": {
+        "slug": "surveys.write",
+        "description": "surveys.write"
+    }
+},
+{
+    "model": "users.role",
+    "pk": 1,
+    "fields": {
+        "name": "student",
+        "slug": "student",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 2,
+    "fields": {
+        "name": "teacher",
+        "slug": "teacher",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 3,
+    "fields": {
+        "name": "methodist",
+        "slug": "methodist",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 4,
+    "fields": {
+        "name": "manager",
+        "slug": "manager",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 5,
+    "fields": {
+        "name": "operational_director",
+        "slug": "operational_director",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 6,
+    "fields": {
+        "name": "financier",
+        "slug": "financier",
+        "permissions": [
+            45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109
+        ]
+    }
+},
+{
+    "model": "users.role",
+    "pk": 7,
+    "fields": {
+        "name": "admin",
+        "slug": "admin",
+        "permissions": [
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109
+        ]
+    }
+}
+]

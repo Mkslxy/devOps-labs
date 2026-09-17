@@ -1,0 +1,1570 @@
+[
+{
+    "model": "testing.testattempt",
+    "pk": 1,
+    "fields": {
+        "student": 29,
+        "test_version": 1,
+        "assignment": 3,
+        "status": "in_progress",
+        "started_at": "2025-12-17T20:10:34.325Z",
+        "finished_at": null,
+        "max_possible_score": 0.0,
+        "grade": null,
+        "is_passed": false
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 2,
+    "fields": {
+        "student": 29,
+        "test_version": 3,
+        "assignment": 2,
+        "status": "completed",
+        "started_at": "2025-12-17T20:15:01.797Z",
+        "finished_at": "2025-12-17T20:16:39.670Z",
+        "max_possible_score": 1.0,
+        "grade": null,
+        "is_passed": false
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 3,
+    "fields": {
+        "student": 29,
+        "test_version": 5,
+        "assignment": 8,
+        "status": "completed",
+        "started_at": "2025-12-18T11:57:15.008Z",
+        "finished_at": "2025-12-18T13:18:19.451Z",
+        "max_possible_score": 5.0,
+        "grade": null,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 4,
+    "fields": {
+        "student": 29,
+        "test_version": 6,
+        "assignment": 9,
+        "status": "completed",
+        "started_at": "2025-12-18T17:05:15.800Z",
+        "finished_at": "2025-12-18T17:37:17.731Z",
+        "max_possible_score": 2.0,
+        "grade": null,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 6,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 10,
+        "status": "completed",
+        "started_at": "2025-12-20T16:59:34.713Z",
+        "finished_at": "2025-12-20T16:59:45.218Z",
+        "max_possible_score": 17.0,
+        "grade": null,
+        "is_passed": false
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 7,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 10,
+        "status": "completed",
+        "started_at": "2025-12-20T17:03:09.627Z",
+        "finished_at": "2025-12-20T17:03:21.270Z",
+        "max_possible_score": 17.0,
+        "grade": null,
+        "is_passed": false
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 8,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 10,
+        "status": "completed",
+        "started_at": "2025-12-20T17:03:46.345Z",
+        "finished_at": "2025-12-20T17:04:47.348Z",
+        "max_possible_score": 17.0,
+        "grade": null,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 9,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 12,
+        "status": "timed_out",
+        "started_at": "2026-01-19T21:45:19.331Z",
+        "finished_at": "2026-01-19T23:26:07.464Z",
+        "max_possible_score": 17.0,
+        "grade": 5,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 10,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 12,
+        "status": "completed",
+        "started_at": "2026-01-21T17:36:57.089Z",
+        "finished_at": "2026-01-21T17:37:08.336Z",
+        "max_possible_score": 17.0,
+        "grade": 6,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 11,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 13,
+        "status": "completed",
+        "started_at": "2026-01-21T17:39:24.710Z",
+        "finished_at": "2026-01-21T17:39:40.407Z",
+        "max_possible_score": 17.0,
+        "grade": 7,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 12,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 13,
+        "status": "timed_out",
+        "started_at": "2026-01-21T17:40:14.332Z",
+        "finished_at": "2026-01-28T18:21:31.930Z",
+        "max_possible_score": 17.0,
+        "grade": 28,
+        "is_passed": true
+    }
+},
+{
+    "model": "testing.testattempt",
+    "pk": 13,
+    "fields": {
+        "student": 29,
+        "test_version": 7,
+        "assignment": 21,
+        "status": "completed",
+        "started_at": "2026-01-30T12:26:07.052Z",
+        "finished_at": "2026-01-30T12:27:26.841Z",
+        "max_possible_score": 17.0,
+        "grade": 30,
+        "is_passed": false
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 1,
+    "fields": {
+        "attempt": 3,
+        "question": 4,
+        "score_awarded": 1.0,
+        "teacher_comment": "Nigga that's so true..."
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 2,
+    "fields": {
+        "attempt": 3,
+        "question": 5,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 3,
+    "fields": {
+        "attempt": 3,
+        "question": 6,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 4,
+    "fields": {
+        "attempt": 3,
+        "question": 7,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 5,
+    "fields": {
+        "attempt": 3,
+        "question": 8,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 8,
+    "fields": {
+        "attempt": 4,
+        "question": 9,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 15,
+    "fields": {
+        "attempt": 6,
+        "question": 11,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 16,
+    "fields": {
+        "attempt": 6,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 17,
+    "fields": {
+        "attempt": 6,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 18,
+    "fields": {
+        "attempt": 6,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 19,
+    "fields": {
+        "attempt": 6,
+        "question": 16,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 20,
+    "fields": {
+        "attempt": 6,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 21,
+    "fields": {
+        "attempt": 7,
+        "question": 15,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 22,
+    "fields": {
+        "attempt": 7,
+        "question": 16,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 23,
+    "fields": {
+        "attempt": 8,
+        "question": 11,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 24,
+    "fields": {
+        "attempt": 8,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 25,
+    "fields": {
+        "attempt": 8,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 26,
+    "fields": {
+        "attempt": 8,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 27,
+    "fields": {
+        "attempt": 8,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 28,
+    "fields": {
+        "attempt": 8,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 48,
+    "fields": {
+        "attempt": 9,
+        "question": 11,
+        "score_awarded": 0.75,
+        "teacher_comment": "Nigga that's so true..."
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 49,
+    "fields": {
+        "attempt": 9,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 50,
+    "fields": {
+        "attempt": 9,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 51,
+    "fields": {
+        "attempt": 9,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 52,
+    "fields": {
+        "attempt": 9,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 53,
+    "fields": {
+        "attempt": 9,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 54,
+    "fields": {
+        "attempt": 10,
+        "question": 11,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 55,
+    "fields": {
+        "attempt": 10,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 56,
+    "fields": {
+        "attempt": 10,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 57,
+    "fields": {
+        "attempt": 10,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 58,
+    "fields": {
+        "attempt": 10,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 59,
+    "fields": {
+        "attempt": 10,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 60,
+    "fields": {
+        "attempt": 11,
+        "question": 11,
+        "score_awarded": 0.75,
+        "teacher_comment": "Nigga that's so true..."
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 61,
+    "fields": {
+        "attempt": 11,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 62,
+    "fields": {
+        "attempt": 11,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 63,
+    "fields": {
+        "attempt": 11,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 64,
+    "fields": {
+        "attempt": 11,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 65,
+    "fields": {
+        "attempt": 11,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 66,
+    "fields": {
+        "attempt": 12,
+        "question": 11,
+        "score_awarded": 1.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 67,
+    "fields": {
+        "attempt": 12,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 68,
+    "fields": {
+        "attempt": 12,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 69,
+    "fields": {
+        "attempt": 12,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 70,
+    "fields": {
+        "attempt": 12,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 71,
+    "fields": {
+        "attempt": 12,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 72,
+    "fields": {
+        "attempt": 13,
+        "question": 11,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 73,
+    "fields": {
+        "attempt": 13,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 74,
+    "fields": {
+        "attempt": 13,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 75,
+    "fields": {
+        "attempt": 13,
+        "question": 15,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentanswer",
+    "pk": 76,
+    "fields": {
+        "attempt": 13,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 1,
+    "fields": {
+        "student_answer": 1,
+        "selected_option": 19,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 2,
+    "fields": {
+        "student_answer": 2,
+        "selected_option": 23,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 3,
+    "fields": {
+        "student_answer": 2,
+        "selected_option": 24,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 4,
+    "fields": {
+        "student_answer": 2,
+        "selected_option": 25,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 5,
+    "fields": {
+        "student_answer": 3,
+        "selected_option": 28,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 6,
+    "fields": {
+        "student_answer": 4,
+        "selected_option": null,
+        "text_response": "There are 10",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 7,
+    "fields": {
+        "student_answer": 5,
+        "selected_option": null,
+        "text_response": "One, Two, Three, Four",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 20,
+    "fields": {
+        "student_answer": 15,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 21,
+    "fields": {
+        "student_answer": 16,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 22,
+    "fields": {
+        "student_answer": 16,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 23,
+    "fields": {
+        "student_answer": 17,
+        "selected_option": null,
+        "text_response": "Цього літа я багато програмував на Python і вивчав Django Rest Framework. Було весело!",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 24,
+    "fields": {
+        "student_answer": 18,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 25,
+    "fields": {
+        "student_answer": 20,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 26,
+    "fields": {
+        "student_answer": 23,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 27,
+    "fields": {
+        "student_answer": 24,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 28,
+    "fields": {
+        "student_answer": 24,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 29,
+    "fields": {
+        "student_answer": 25,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 30,
+    "fields": {
+        "student_answer": 26,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 31,
+    "fields": {
+        "student_answer": 27,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 32,
+    "fields": {
+        "student_answer": 28,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 33,
+    "fields": {
+        "student_answer": 28,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 34,
+    "fields": {
+        "student_answer": 28,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 35,
+    "fields": {
+        "student_answer": 28,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 66,
+    "fields": {
+        "student_answer": 48,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 67,
+    "fields": {
+        "student_answer": 49,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 68,
+    "fields": {
+        "student_answer": 49,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 69,
+    "fields": {
+        "student_answer": 50,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 70,
+    "fields": {
+        "student_answer": 51,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 71,
+    "fields": {
+        "student_answer": 52,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 72,
+    "fields": {
+        "student_answer": 53,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 73,
+    "fields": {
+        "student_answer": 53,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 74,
+    "fields": {
+        "student_answer": 53,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 75,
+    "fields": {
+        "student_answer": 53,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 76,
+    "fields": {
+        "student_answer": 54,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 77,
+    "fields": {
+        "student_answer": 55,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 78,
+    "fields": {
+        "student_answer": 55,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 79,
+    "fields": {
+        "student_answer": 56,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 80,
+    "fields": {
+        "student_answer": 57,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 81,
+    "fields": {
+        "student_answer": 58,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 82,
+    "fields": {
+        "student_answer": 59,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 83,
+    "fields": {
+        "student_answer": 59,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 84,
+    "fields": {
+        "student_answer": 59,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 85,
+    "fields": {
+        "student_answer": 59,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 86,
+    "fields": {
+        "student_answer": 60,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 87,
+    "fields": {
+        "student_answer": 61,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 88,
+    "fields": {
+        "student_answer": 61,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 89,
+    "fields": {
+        "student_answer": 62,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 90,
+    "fields": {
+        "student_answer": 63,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 91,
+    "fields": {
+        "student_answer": 64,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 92,
+    "fields": {
+        "student_answer": 65,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 93,
+    "fields": {
+        "student_answer": 65,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 94,
+    "fields": {
+        "student_answer": 65,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 95,
+    "fields": {
+        "student_answer": 65,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 96,
+    "fields": {
+        "student_answer": 66,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 97,
+    "fields": {
+        "student_answer": 67,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 98,
+    "fields": {
+        "student_answer": 67,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 99,
+    "fields": {
+        "student_answer": 68,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 100,
+    "fields": {
+        "student_answer": 69,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 101,
+    "fields": {
+        "student_answer": 70,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 102,
+    "fields": {
+        "student_answer": 71,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 103,
+    "fields": {
+        "student_answer": 71,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 104,
+    "fields": {
+        "student_answer": 71,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 105,
+    "fields": {
+        "student_answer": 71,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 106,
+    "fields": {
+        "student_answer": 72,
+        "selected_option": 35,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 107,
+    "fields": {
+        "student_answer": 73,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 108,
+    "fields": {
+        "student_answer": 73,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 109,
+    "fields": {
+        "student_answer": 74,
+        "selected_option": null,
+        "text_response": "ereyrey",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 110,
+    "fields": {
+        "student_answer": 75,
+        "selected_option": null,
+        "text_response": "{\"53\":\"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 111,
+    "fields": {
+        "student_answer": 76,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 112,
+    "fields": {
+        "student_answer": 76,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 113,
+    "fields": {
+        "student_answer": 76,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.studentansweritem",
+    "pk": 114,
+    "fields": {
+        "student_answer": 76,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingtestattempt",
+    "pk": 1,
+    "fields": {
+        "student": null,
+        "name": "Nikita Z",
+        "email": "nikitaz9251015@gmail.com",
+        "test_version": 7,
+        "assignment": 19,
+        "status": "completed",
+        "started_at": "2026-01-29T14:35:47.452Z",
+        "finished_at": "2026-01-29T14:43:47.283Z",
+        "max_possible_score": 17.0,
+        "is_passed": true,
+        "score": 11.75,
+        "anonymous_token": "5002e86f-0a37-4749-bef6-6edeeeff86be"
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 1,
+    "fields": {
+        "attempt": 1,
+        "question": 11,
+        "score_awarded": 0.75,
+        "teacher_comment": "Nigga that's so true..."
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 2,
+    "fields": {
+        "attempt": 1,
+        "question": 12,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 3,
+    "fields": {
+        "attempt": 1,
+        "question": 13,
+        "score_awarded": 0.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 4,
+    "fields": {
+        "attempt": 1,
+        "question": 14,
+        "score_awarded": 2.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 5,
+    "fields": {
+        "attempt": 1,
+        "question": 15,
+        "score_awarded": 3.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.onboardingstudentanswer",
+    "pk": 6,
+    "fields": {
+        "attempt": 1,
+        "question": 16,
+        "score_awarded": 4.0,
+        "teacher_comment": ""
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 1,
+    "fields": {
+        "student_answer": 1,
+        "selected_option": 37,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 2,
+    "fields": {
+        "student_answer": 2,
+        "selected_option": 40,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 3,
+    "fields": {
+        "student_answer": 2,
+        "selected_option": 38,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 4,
+    "fields": {
+        "student_answer": 3,
+        "selected_option": null,
+        "text_response": "Літо я провів чудово, вивчаючи нові технології програмування та відпочиваючи на природі.",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 5,
+    "fields": {
+        "student_answer": 4,
+        "selected_option": null,
+        "text_response": "{\"1\": \"України\", \"2\": \"Великобританії\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 6,
+    "fields": {
+        "student_answer": 5,
+        "selected_option": null,
+        "text_response": "{\"53\": \"Гав-гав\", \"54\": \"Мяу\", \"55\": \"Му-у-у\"}",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 7,
+    "fields": {
+        "student_answer": 6,
+        "selected_option": 56,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 8,
+    "fields": {
+        "student_answer": 6,
+        "selected_option": 57,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 9,
+    "fields": {
+        "student_answer": 6,
+        "selected_option": 58,
+        "text_response": "",
+        "placeholder_index": null
+    }
+},
+{
+    "model": "testing.onboardingstudentansweritem",
+    "pk": 10,
+    "fields": {
+        "student_answer": 6,
+        "selected_option": 59,
+        "text_response": "",
+        "placeholder_index": null
+    }
+}
+]
