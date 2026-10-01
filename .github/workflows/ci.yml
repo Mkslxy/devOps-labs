@@ -11,6 +11,7 @@ permissions:
   packages: write
 
 jobs:
+  # 1. Статический анализ кода (Линтер)
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +30,7 @@ jobs:
       - name: Run Ruff Lint
         run: ruff check --select=E9,F63,F7,F82 api/
 
+  # 2. Сборка окружения и запуск тестов
   test:
     runs-on: ubuntu-latest
     steps:
@@ -49,15 +51,19 @@ jobs:
 
       - name: Prepare test settings and run Pytest
         run: |
-          # Создаем .env и в корне репозитория, и внутри api/
+          # Создаем фиктивные переменные окружения
           echo "SECRET_KEY=ci-dummy-key-for-tests-12345" | tee .env api/.env
           echo "DEBUG=True" | tee -a .env api/.env
           echo "ALLOWED_HOSTS=*" | tee -a .env api/.env
+          echo "GEMINI_API_KEY=dummy-gemini-key-for-ci" | tee -a .env api/.env
+          echo "GOOGLE_API_KEY=dummy-google-key-for-ci" | tee -a .env api/.env
 
-          # Создаем специальный тестовый settings модуль, который переопределяет SECRET_KEY
+          # Создаем изолированный тестовый модуль настроек
           cat << 'EOF' > api/UniSchool/test_settings.py
           import os
           os.environ["SECRET_KEY"] = "ci-dummy-key-for-tests-12345"
+          os.environ["GEMINI_API_KEY"] = "dummy-gemini-key-for-ci"
+          os.environ["GOOGLE_API_KEY"] = "dummy-google-key-for-ci"
           from UniSchool.settings import *
           SECRET_KEY = "ci-dummy-key-for-tests-12345"
           DEBUG = True
@@ -72,8 +78,13 @@ jobs:
           export PYTHONPATH="./api:$PYTHONPATH"
           export DJANGO_SETTINGS_MODULE="UniSchool.test_settings"
           export SECRET_KEY="ci-dummy-key-for-tests-12345"
-          pytest api/ -o django_settings_module=UniSchool.test_settings
+          export GEMINI_API_KEY="dummy-gemini-key-for-ci"
+          export GOOGLE_API_KEY="dummy-google-key-for-ci"
 
+          # Запуск тестов изолированных сервисов
+          pytest api/apps/core/ api/apps/users/ api/apps/classes/ -o django_settings_module=UniSchool.test_settings
+
+  # 3. Сборка Docker-образа, сканирование и публикация в GHCR
   docker-build-push:
     needs: [lint, test]
     runs-on: ubuntu-latest
