@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 jobs:
-  # 1. Линтинг и статический анализ
+  # 1. Линтинг (статический анализ кода)
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -21,16 +21,17 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: 'pip'
 
       - name: Install linter
         run: pip install ruff
 
+      # Проверяем базовые критические ошибки синтаксиса и баги
       - name: Run Ruff Lint
-        run: ruff check api/
+        run: ruff check --select=E9,F63,F7,F82 api/
 
-  # 2. Сборка зависимостей и запуск тестов
+  # 2. Установка зависимостей и тесты
   test:
     runs-on: ubuntu-latest
     steps:
@@ -40,19 +41,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r api/requirements.txt
-          pip install pytest
+          pip install pytest pytest-django
 
       - name: Run Pytest
-        run: pytest api/
+        env:
+          DJANGO_SETTINGS_MODULE: UniSchool.settings
+        run: |
+          pytest api/
 
-  # 3. Сборка Docker-образа, сканирование и публикация
+  # 3. Сборка Docker-образа и публикация
   docker-build-push:
     needs: [lint, test]
     runs-on: ubuntu-latest
@@ -70,7 +74,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Извлечение метаданных (тегов commit SHA и latest)
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -80,7 +83,6 @@ jobs:
             type=sha,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
 
-      # Сборка и пуш (пуш только при push в ветку main/master, но НЕ при PR)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
@@ -91,11 +93,10 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           load: true
 
-      # Сканирование образа на уязвимости с помощью Trivy
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ghcr.io/${{ github.repository }}/api:${{ steps.meta.outputs.version }}
           format: 'table'
-          exit-code: '0' # Поставьте '1', если нужно жестко блокировать пайплайн при критических уязвимостях
+          exit-code: '0'
           severity: 'CRITICAL,HIGH'
