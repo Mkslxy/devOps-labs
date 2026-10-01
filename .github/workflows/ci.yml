@@ -11,6 +11,7 @@ permissions:
   packages: write
 
 jobs:
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -51,9 +52,12 @@ jobs:
         env:
           DJANGO_SETTINGS_MODULE: UniSchool.settings
           PYTHONPATH: ./api
+          SECRET_KEY: 'ci-temporary-secret-key-for-running-tests-12345'
+          DEBUG: 'True'
         run: |
           pytest api/
 
+  # 3. Сборка и публикация Docker-образа
   docker-build-push:
     needs: [lint, test]
     runs-on: ubuntu-latest
