@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 jobs:
-  # 1. Статический анализ кода (Линтер)
+  # 1. Статичний аналіз коду (Лінтер)
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: Run Ruff Lint
         run: ruff check --select=E9,F63,F7,F82 api/
 
-  # 2. Сборка окружения и запуск тестов
+  # 2. Збірка середовища та запуск тестів
   test:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,6 @@ jobs:
 
       - name: Prepare test settings and run Pytest
         run: |
-          # Создаем фиктивные переменные окружения, включая Telegram токен
           echo "SECRET_KEY=ci-dummy-key-for-tests-12345" | tee .env api/.env
           echo "DEBUG=True" | tee -a .env api/.env
           echo "ALLOWED_HOSTS=*" | tee -a .env api/.env
@@ -60,7 +59,6 @@ jobs:
           echo "TELEGRAM_BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ" | tee -a .env api/.env
           echo "TELEGRAM_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ" | tee -a .env api/.env
 
-          # Создаем изолированный тестовый модуль настроек
           cat << 'EOF' > api/UniSchool/test_settings.py
           import os
           os.environ["SECRET_KEY"] = "ci-dummy-key-for-tests-12345"
@@ -89,10 +87,9 @@ jobs:
           export TELEGRAM_BOT_TOKEN="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
           export TELEGRAM_TOKEN="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
 
-          # Запуск стабильных unit-тестов сервисов и логики
           pytest api/apps/users/tests/test_users_utils.py api/apps/classes/tests/test_lesson_service.py api/apps/classes/tests/test_lesson_services_extended.py -o django_settings_module=UniSchool.test_settings
 
-  # 3. Сборка Docker-образа, сканирование и публикация в GHCR
+  # 3. Збірка Docker-образу, сканування та публікація в GHCR
   docker-build-push:
     needs: [lint, test]
     runs-on: ubuntu-latest
@@ -110,29 +107,48 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Перетворюємо ім'я репозиторію в нижній регістр для Docker/GHCR
+      - name: Lowercase image name
+        id: image_name
+        run: |
+          IMAGE_NAME="ghcr.io/${{ github.repository }}/api"
+          echo "image=$(echo $IMAGE_NAME | tr '[A-Z]' '[a-z]')" >> $GITHUB_OUTPUT
+
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/api
+          images: ${{ steps.image_name.outputs.image }}
           tags: |
             type=sha,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
 
-      - name: Build and Push Docker Image
+      # Збірка образу (з завантаженням локально в docker демон для сканування Trivy)
+      - name: Build Docker Image
         uses: docker/build-push-action@v5
         with:
           context: ./api
           file: ./api/Dockerfile
-          push: ${{ github.event_name == 'push' }}
+          load: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          load: true
 
+      # Сканування локально зібраного образу
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ghcr.io/${{ github.repository }}/api:${{ steps.meta.outputs.version }}
+          image-ref: ${{ steps.image_name.outputs.image }}:latest
           format: 'table'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
+
+      # Публікація в реєстр тільки під час push у main/master гілку
+      - name: Push Docker Image
+        if: github.event_name == 'push'
+        uses: docker/build-push-action@v5
+        with:
+          context: ./api
+          file: ./api/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
