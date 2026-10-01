@@ -47,15 +47,32 @@ jobs:
           pip install -r api/requirements.txt
           pip install pytest pytest-django
 
-      - name: Run Pytest
-        env:
-          DJANGO_SETTINGS_MODULE: UniSchool.settings
-          PYTHONPATH: ./api
+      - name: Prepare test settings and run Pytest
         run: |
-          echo "SECRET_KEY=ci-temporary-secret-key-for-running-tests-12345" >> api/.env
-          echo "DEBUG=True" >> api/.env
-          echo "ALLOWED_HOSTS=*" >> api/.env
-          pytest api/
+          # Создаем .env и в корне репозитория, и внутри api/
+          echo "SECRET_KEY=ci-dummy-key-for-tests-12345" | tee .env api/.env
+          echo "DEBUG=True" | tee -a .env api/.env
+          echo "ALLOWED_HOSTS=*" | tee -a .env api/.env
+
+          # Создаем специальный тестовый settings модуль, который переопределяет SECRET_KEY
+          cat << 'EOF' > api/UniSchool/test_settings.py
+          import os
+          os.environ["SECRET_KEY"] = "ci-dummy-key-for-tests-12345"
+          from UniSchool.settings import *
+          SECRET_KEY = "ci-dummy-key-for-tests-12345"
+          DEBUG = True
+          DATABASES = {
+              'default': {
+                  'ENGINE': 'django.db.backends.sqlite3',
+                  'NAME': ':memory:',
+              }
+          }
+          EOF
+
+          export PYTHONPATH="./api:$PYTHONPATH"
+          export DJANGO_SETTINGS_MODULE="UniSchool.test_settings"
+          export SECRET_KEY="ci-dummy-key-for-tests-12345"
+          pytest api/ -o django_settings_module=UniSchool.test_settings
 
   docker-build-push:
     needs: [lint, test]
