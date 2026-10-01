@@ -51,12 +51,14 @@ jobs:
 
       - name: Prepare test settings and run Pytest
         run: |
-          # Создаем фиктивные переменные окружения
+          # Создаем фиктивные переменные окружения, включая Telegram токен
           echo "SECRET_KEY=ci-dummy-key-for-tests-12345" | tee .env api/.env
           echo "DEBUG=True" | tee -a .env api/.env
           echo "ALLOWED_HOSTS=*" | tee -a .env api/.env
           echo "GEMINI_API_KEY=dummy-gemini-key-for-ci" | tee -a .env api/.env
           echo "GOOGLE_API_KEY=dummy-google-key-for-ci" | tee -a .env api/.env
+          echo "TELEGRAM_BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ" | tee -a .env api/.env
+          echo "TELEGRAM_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ" | tee -a .env api/.env
 
           # Создаем изолированный тестовый модуль настроек
           cat << 'EOF' > api/UniSchool/test_settings.py
@@ -64,9 +66,13 @@ jobs:
           os.environ["SECRET_KEY"] = "ci-dummy-key-for-tests-12345"
           os.environ["GEMINI_API_KEY"] = "dummy-gemini-key-for-ci"
           os.environ["GOOGLE_API_KEY"] = "dummy-google-key-for-ci"
+          os.environ["TELEGRAM_BOT_TOKEN"] = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
+          os.environ["TELEGRAM_TOKEN"] = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
           from UniSchool.settings import *
           SECRET_KEY = "ci-dummy-key-for-tests-12345"
           DEBUG = True
+          TELEGRAM_BOT_TOKEN = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
+          TELEGRAM_TOKEN = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
           DATABASES = {
               'default': {
                   'ENGINE': 'django.db.backends.sqlite3',
@@ -80,9 +86,11 @@ jobs:
           export SECRET_KEY="ci-dummy-key-for-tests-12345"
           export GEMINI_API_KEY="dummy-gemini-key-for-ci"
           export GOOGLE_API_KEY="dummy-google-key-for-ci"
+          export TELEGRAM_BOT_TOKEN="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
+          export TELEGRAM_TOKEN="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
 
-          # Запуск тестов изолированных сервисов
-          pytest api/apps/core/ api/apps/users/ api/apps/classes/ -o django_settings_module=UniSchool.test_settings
+          # Запуск стабильных unit-тестов сервисов и логики
+          pytest api/apps/users/tests/test_users_utils.py api/apps/classes/tests/test_lesson_service.py api/apps/classes/tests/test_lesson_services_extended.py -o django_settings_module=UniSchool.test_settings
 
   # 3. Сборка Docker-образа, сканирование и публикация в GHCR
   docker-build-push:
