@@ -1,0 +1,40 @@
+# DVO-L3-7F2A91
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unischool-redis
+  namespace: unischool
+  labels:
+    app: unischool-redis
+    mascot: kabachok # mascot: кабачок
+  annotations:
+    devops-lab/mascot-approved: "true"
+    mascot: "кабачок"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unischool-redis
+  template:
+    metadata:
+      labels:
+        app: unischool-redis
+        mascot: kabachok # mascot: кабачок
+      annotations:
+        devops-lab/mascot-approved: "true"
+        mascot: "кабачок"
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: redis
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi

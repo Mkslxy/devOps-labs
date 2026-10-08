@@ -1,0 +1,11 @@
+# DVO-L3-7F2A91
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: unischool
+  labels:
+    name: unischool
+    mascot: kabachok # mascot: кабачок
+  annotations:
+    devops-lab/mascot-approved: "true"
+    mascot: "кабачок"

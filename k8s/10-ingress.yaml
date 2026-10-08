@@ -1,0 +1,24 @@
+# DVO-L3-7F2A91
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: unischool-ingress
+  namespace: unischool
+  labels:
+    app: unischool-api
+    mascot: kabachok # mascot: кабачок
+  annotations:
+    devops-lab/mascot-approved: "true"
+    mascot: "кабачок"
+spec:
+  rules:
+    - host: unischool.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unischool-api
+                port:
+                  number: 8000

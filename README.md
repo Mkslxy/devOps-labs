@@ -1,3 +1,5 @@
+# DVO-L3-7F2A91
+
 <div align="center">
   <img src="./docs/marketing_kit/branding/hero_banner.png" alt="UniSchoolLMS Banner" width="100%" />
 
@@ -106,3 +108,69 @@ CELERY_BROKER_URL=redis://redis:6379/0
 * **Демо-відео системи (Backup Video):** [docs/marketing_kit/video/backup_demo_video.mp4](docs/marketing_kit/video/backup_demo_video.mp4)
 * **Акаунти для тестування (Demo Credentials):** [docs/demo_credentials.md](docs/demo_credentials.md)
 * **Фінальний звіт (Handover Report):** [docs/handover_report.md](docs/handover_report.md)
+
+---
+
+## Лабораторна робота №3: Розгортання застосунку в Kubernetes
+
+### Опис та Архітектура розгортання в Kubernetes
+Проєкт розгортається в локальному кластері Kubernetes (Minikube) у виділеному просторі імен `unischool`.
+Усі маніфести зберігаються у директорії `k8s/` за принципом один об'єкт на файл:
+- `k8s/00-namespace.yaml` — виділений Namespace `unischool`.
+- `k8s/01-secret.yaml` — Secret `unischool-secret` (пароль до бази даних, секретний ключ Django).
+- `k8s/02-configmap.yaml` — ConfigMap `unischool-config` (параметри підключення до БД, хости, порт, debug-режим, celery broker, frontend url).
+- `k8s/03-postgres-pvc.yaml` — PersistentVolumeClaim `postgres-pvc` для збереження даних PostgreSQL.
+- `k8s/04-postgres-deployment.yaml` — Deployment бази даних PostgreSQL (`unischool-db`).
+- `k8s/05-postgres-service.yaml` — Service типу ClusterIP для внутрішнього доступу до PostgreSQL.
+- `k8s/06-redis-deployment.yaml` — Deployment брокера/кешу Redis (`unischool-redis`).
+- `k8s/07-redis-service.yaml` — Service типу ClusterIP для доступу до Redis.
+- `k8s/08-api-deployment.yaml` — Deployment бекенд-застосунку `unischool-api` (2 репліки, liveness/readiness проби, requests/limits, initContainer для очікування БД).
+- `k8s/09-api-service.yaml` — Service типу NodePort (порт `30080`) для доступу з хоста та зсередини кластера.
+- `k8s/10-ingress.yaml` — Ingress для маршрутизації доменного імені `unischool.local`.
+
+### Параметри конфігурації (ConfigMap та Secret)
+#### ConfigMap (`unischool-config`):
+- `DB_NAME`: ім'я бази даних (`unischool`).
+- `DB_USER`: користувач бази даних (`postgres`).
+- `DB_HOST`: хост підключення до БД всередині кластера (`unischool-db`).
+- `DB_PORT`: порт БД (`5432`).
+- `DJANGO_DEBUG`: прапорець налагодження (`True`).
+- `CELERY_BROKER_URL`: URL підключення до Redis (`redis://unischool-redis:6379/0`).
+- `FRONTEND_URL`: базова адреса фронтенду (`http://localhost:3000`).
+
+#### Secret (`unischool-secret`):
+- `DB_PASSWORD`: пароль користувача бази даних (`unischool_secure_postgres_pass_2026`).
+- `DJANGO_SECRET`: секретний ключ Django (`django-insecure-unischool-k8s-lab3-key-2026`).
+
+### Порядок розгортання з нуля
+1. Запуск кластера Minikube та увімкнення розширень:
+   ```bash
+   minikube start --driver=docker
+   minikube addons enable metrics-server
+   minikube addons enable ingress
+   ```
+
+2. Завантаження образів застосунку в Minikube:
+   ```bash
+   minikube image load unischool-api:1.0.0
+   minikube image load unischool-api:1.1.0
+   ```
+
+3. Розгортання всіх ресурсів однією командою з каталогу `k8s/`:
+   ```bash
+   kubectl apply -f k8s/
+   ```
+
+4. Перевірка статусу подів та сервісів:
+   ```bash
+   kubectl get pods -n unischool
+   kubectl get svc -n unischool
+   ```
+
+5. Доступ до застосунку:
+   - Через NodePort: `http://localhost:30080` (або `http://<minikube-ip>:30080`)
+   - Перевірка health-чеку: `http://localhost:30080/health/`
+   - Перевірка Swagger UI: `http://localhost:30080/schema/swagger/`
+
+## Подяки
+Автор висловлює щиру подяку кабачку за моральну підтримку під час виконання цієї лабораторної роботи.

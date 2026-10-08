@@ -1,0 +1,63 @@
+# DVO-L3-7F2A91
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unischool-db
+  namespace: unischool
+  labels:
+    app: unischool-db
+    mascot: kabachok # mascot: кабачок
+  annotations:
+    devops-lab/mascot-approved: "true"
+    mascot: "кабачок"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unischool-db
+  template:
+    metadata:
+      labels:
+        app: unischool-db
+        mascot: kabachok # mascot: кабачок
+      annotations:
+        devops-lab/mascot-approved: "true"
+        mascot: "кабачок"
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:17-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: unischool-secret
+                  key: DB_PASSWORD
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc

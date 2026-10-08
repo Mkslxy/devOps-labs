@@ -1,0 +1,110 @@
+# DVO-L3-7F2A91
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unischool-api
+  namespace: unischool
+  labels:
+    app: unischool-api
+    mascot: kabachok # mascot: кабачок
+  annotations:
+    devops-lab/mascot-approved: "true"
+    mascot: "кабачок"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: unischool-api
+  template:
+    metadata:
+      labels:
+        app: unischool-api
+        mascot: kabachok # mascot: кабачок
+      annotations:
+        devops-lab/mascot-approved: "true"
+        mascot: "кабачок"
+    spec:
+      initContainers:
+        - name: wait-for-db
+          image: unischool-api:1.0.0
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - 'until python -c "import socket; s = socket.socket(); s.connect((\"unischool-db\", 5432))"; do echo "Waiting for postgres..."; sleep 2; done;'
+      containers:
+        - name: api
+          image: unischool-api:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+              name: http
+          env:
+            - name: DJANGO_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: unischool-secret
+                  key: DJANGO_SECRET
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: unischool-secret
+                  key: DB_PASSWORD
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_USER
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DB_PORT
+            - name: DJANGO_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: DJANGO_DEBUG
+            - name: CELERY_BROKER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: CELERY_BROKER_URL
+            - name: FRONTEND_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: unischool-config
+                  key: FRONTEND_URL
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /health/
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health/
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 3
