@@ -122,6 +122,8 @@ jobs:
           tags: |
             type=sha,format=short
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+            type=raw,value=1.0.0,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+            type=raw,value=2.0.0,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
 
       # Збірка образу (з завантаженням локально в docker демон для сканування Trivy)
       - name: Build Docker Image
