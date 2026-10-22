@@ -1,0 +1,30 @@
+# DVO-L4-3C8B52
+{{- if .Values.hooks.preUpgrade.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "unischool.fullname" . }}-pre-upgrade
+  labels:
+    {{- include "unischool.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    {{- include "unischool.annotations" . | nindent 4 }}
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        {{- include "unischool.labels" . | nindent 8 }}
+      annotations:
+        {{- include "unischool.annotations" . | nindent 8 }}
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: pre-upgrade-check
+          image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+          command:
+            - sh
+            - -c
+            - 'echo "Running pre-upgrade check before release update..."; sleep 2; echo "Pre-upgrade check completed successfully!"'
+{{- end }}

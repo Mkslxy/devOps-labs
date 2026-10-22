@@ -1,0 +1,33 @@
+# DVO-L4-3C8B52
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "unischool.fullname" . }}-redis
+  labels:
+    {{- include "unischool.labels" . | nindent 4 }}
+    app: {{ include "unischool.fullname" . }}-redis
+  annotations:
+    {{- include "unischool.annotations" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "unischool.selectorLabels" . | nindent 6 }}
+      app: {{ include "unischool.fullname" . }}-redis
+  template:
+    metadata:
+      labels:
+        {{- include "unischool.labels" . | nindent 8 }}
+        app: {{ include "unischool.fullname" . }}-redis
+      annotations:
+        {{- include "unischool.annotations" . | nindent 8 }}
+    spec:
+      containers:
+        - name: redis
+          image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+          imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
+          ports:
+            - containerPort: 6379
+              name: redis
+          resources:
+            {{- toYaml .Values.redis.resources | nindent 12 }}

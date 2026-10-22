@@ -1,0 +1,30 @@
+# DVO-L4-3C8B52
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "unischool.fullname" . }}-ingress
+  labels:
+    {{- include "unischool.labels" . | nindent 4 }}
+    app: {{ include "unischool.fullname" . }}-api
+  annotations:
+    {{- include "unischool.annotations" . | nindent 4 }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  {{- if .Values.ingress.className }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  rules:
+    - host: {{ .Values.ingress.host | quote }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.path | default "/" }}
+            pathType: {{ .Values.ingress.pathType | default "Prefix" }}
+            backend:
+              service:
+                name: {{ include "unischool.fullname" . }}-api
+                port:
+                  number: {{ .Values.api.service.port | default 8000 }}
+{{- end }}

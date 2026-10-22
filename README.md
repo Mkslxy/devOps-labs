@@ -1,4 +1,4 @@
-# DVO-L3-7F2A91
+# DVO-L4-3C8B52
 
 <div align="center">
   <img src="./docs/marketing_kit/branding/hero_banner.png" alt="UniSchoolLMS Banner" width="100%" />
@@ -172,5 +172,115 @@ CELERY_BROKER_URL=redis://redis:6379/0
    - Перевірка health-чеку: `http://localhost:30080/health/`
    - Перевірка Swagger UI: `http://localhost:30080/schema/swagger/`
 
+---
+
+# Лабораторна робота №4: Helm-чарт застосунку UniSchool
+
+## 1. Огляд та призначення чарта
+Helm-чарт розміщений у каталозі `chart/` і призначений для автоматизованого розгортання всього мікросервісного стеку **UniSchool** у Kubernetes:
+- **`unischool-api`**: Django REST backend (з підтримкою горизонтального масштабування, startup/liveness/readiness проб та initContainer для очікування БД).
+- **`unischool-db`**: реляційна база даних PostgreSQL з PersistentVolumeClaim для збереження даних.
+- **`unischool-redis`**: брокер повідомлень та кеш Redis.
+- **`unischool-ingress`**: правила маршрутизації HTTP-трафіку за доменними іменами.
+
+## 2. Різниця між `version` та `appVersion` у `Chart.yaml`
+- **`version`** (`0.1.0`): Версія самого Helm-чарта як артефакту та пакету (згідно з SemVer 2). Змінюється при додаванні нових параметрів у `values.yaml`, модифікації шаблонів `templates/`, зміні правил маршрутизації чи ресурсів.
+- **`appVersion`** (`"1.0.0"`): Версія прикладного програмного забезпечення (UniSchool API), що пакується та розгортається цим чартом. Вказує на версію вихідного коду/Docker-образу застосунку.
+
+## 3. Таблиця параметрів `values.yaml`
+
+| Параметр | Тип | За замовчуванням (Dev) | Опис |
+| :--- | :--- | :--- | :--- |
+| `api.replicaCount` | `int` | `1` | Кількість реплік подів бекенду UniSchool API |
+| `api.image.repository` | `string` | `unischool-api` | Репозиторій образу бекенду |
+| `api.image.tag` | `string` | `"1.0.0"` | Тег Docker-образу бекенду |
+| `api.image.pullPolicy` | `string` | `IfNotPresent` | Політика викачування образу |
+| `api.service.type` | `string` | `NodePort` | Тип Kubernetes Service (`NodePort` або `ClusterIP`) |
+| `api.service.port` | `int` | `8000` | Внутрішній порт сервісу |
+| `api.service.targetPort` | `int` | `8000` | Порт контейнера |
+| `api.service.nodePort` | `int` | `30080` | Фіксований зовнішній порт NodePort (для Dev) |
+| `api.resources.requests.cpu` | `string` | `100m` | Мінімальні гарантовані ресурси CPU для API |
+| `api.resources.requests.memory` | `string` | `128Mi` | Мінімальна пам'ять для API |
+| `api.resources.limits.cpu` | `string` | `500m` | Максимальний ліміт CPU для API |
+| `api.resources.limits.memory` | `string` | `512Mi` | Максимальний ліміт пам'яті для API |
+| `postgres.image.repository` | `string` | `postgres` | Репозиторій образу PostgreSQL |
+| `postgres.image.tag` | `string` | `"17-alpine"` | Тег образу PostgreSQL |
+| `postgres.persistence.enabled` | `bool` | `true` | Увімкнення збереження даних через PVC |
+| `postgres.persistence.size` | `string` | `1Gi` | Обсяг сховища PersistentVolumeClaim |
+| `redis.image.repository` | `string` | `redis` | Репозиторій образу Redis |
+| `redis.image.tag` | `string` | `"7-alpine"` | Тег образу Redis |
+| `ingress.enabled` | `bool` | `false` | Увімкнення Ingress-маршрутизатора |
+| `ingress.className` | `string` | `""` | Клас Ingress-контролера (наприклад `nginx`) |
+| `ingress.host` | `string` | `unischool.local` | Доменне ім'я Ingress |
+| `config.dbName` | `string` | `unischool` | Ім'я бази даних PostgreSQL |
+| `config.dbUser` | `string` | `postgres` | Користувач бази даних |
+| `config.dbPort` | `string` | `"5432"` | Порт підключення до БД |
+| `config.djangoDebug` | `string` | `"True"` | Прапорець Django Debug |
+| `config.frontendUrl` | `string` | `http://localhost:3000` | Базова адреса фронтенду |
+| `secrets.dbPassword` | `string` | `"..."` | Пароль до PostgreSQL |
+| `secrets.djangoSecret` | `string` | `"..."` | Секретний ключ Django |
+| `secrets.geminiToken` | `string` | `"..."` | API-токен Google Gemini |
+| `secrets.tgToken` | `string` | `"..."` | Токен Telegram-бота |
+| `hooks.preUpgrade.enabled` | `bool` | `true` | Увімкнення pre-upgrade хука перевірки |
+
+## 4. Команди перевірки та встановлення
+
+### 4.1. Статична валідація чарта:
+```bash
+helm lint ./chart
+helm lint ./chart -f ./chart/values-dev.yaml
+helm lint ./chart -f ./chart/values-prod.yaml
+```
+
+### 4.2. Перегляд згенерованих маніфестів (Dry Run):
+```bash
+helm template unischool-dev ./chart -f ./chart/values-dev.yaml
+helm template unischool-prod ./chart -f ./chart/values-prod.yaml
+```
+
+### 4.3. Розгортання у середовищі розробки (Development):
+```bash
+helm install unischool-dev ./chart -f ./chart/values-dev.yaml -n unischool-dev --create-namespace
+```
+
+### 4.4. Розгортання у продуктивному середовищі (Production):
+```bash
+helm install unischool-prod ./chart -f ./chart/values-prod.yaml -n unischool-prod --create-namespace
+```
+
+## 5. Керування життєвим циклом релізу
+
+- **Перевірка статусу та списку релізів:**
+  ```bash
+  helm list -A
+  helm status unischool-dev -n unischool-dev
+  ```
+- **Запуск автоматизованих тестів (`helm test`):**
+  ```bash
+  helm test unischool-dev -n unischool-dev
+  ```
+- **Оновлення тега образу через `--set`:**
+  ```bash
+  helm upgrade unischool-dev ./chart -f ./chart/values-dev.yaml --set api.image.tag=1.1.0 -n unischool-dev
+  ```
+- **Оновлення файлом конфігурації іншого середовища:**
+  ```bash
+  helm upgrade unischool-dev ./chart -f ./chart/values-prod.yaml -n unischool-dev
+  ```
+- **Перегляд історії ревізій:**
+  ```bash
+  helm history unischool-dev -n unischool-dev
+  ```
+- **Відкат до попередньої ревізії:**
+  ```bash
+  helm rollback unischool-dev 1 -n unischool-dev
+  ```
+- **Видалення релізу:**
+  ```bash
+  helm uninstall unischool-dev -n unischool-dev
+  ```
+
+---
+
 ## Подяки
-Автор висловлює щиру подяку кабачку за моральну підтримку під час виконання цієї лабораторної роботи.
+Автор дякує гарбузу за те, що жоден реліз не довелося відкочувати двічі.

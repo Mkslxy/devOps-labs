@@ -1,0 +1,40 @@
+# DVO-L4-3C8B52
+# Налаштування для середовища розробки (Development)
+
+api:
+  replicaCount: 1
+  image:
+    repository: unischool-api
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  service:
+    type: NodePort
+    port: 8000
+    targetPort: 8000
+    nodePort: 30080
+
+ingress:
+  enabled: false
+  host: unischool.dev.local
+
+postgres:
+  persistence:
+    enabled: true
+    size: 1Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+config:
+  djangoDebug: "True"

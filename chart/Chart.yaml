@@ -1,0 +1,10 @@
+# DVO-L4-3C8B52
+apiVersion: v2
+name: unischool
+description: Helm-чарт для розгортання мікросервісного застосунку UniSchool (API, PostgreSQL, Redis, Ingress)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+maintainers:
+  - name: Olexii
+    email: leshalol66@gmail.com

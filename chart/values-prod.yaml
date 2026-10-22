@@ -1,0 +1,44 @@
+# DVO-L4-3C8B52
+# Налаштування для продуктивного середовища (Production)
+
+api:
+  replicaCount: 3
+  image:
+    repository: unischool-api
+    tag: "1.1.0"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  service:
+    type: ClusterIP
+    port: 8000
+    targetPort: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+  host: unischool.prod.local
+  path: /
+  pathType: Prefix
+
+postgres:
+  persistence:
+    enabled: true
+    size: 1Gi
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+
+config:
+  djangoDebug: "False"

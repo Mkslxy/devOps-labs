@@ -1,0 +1,18 @@
+# DVO-L4-3C8B52
+{{- if .Values.postgres.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "unischool.fullname" . }}-postgres-pvc
+  labels:
+    {{- include "unischool.labels" . | nindent 4 }}
+    app: {{ include "unischool.fullname" . }}-db
+  annotations:
+    {{- include "unischool.annotations" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.postgres.persistence.accessMode | default "ReadWriteOnce" }}
+  resources:
+    requests:
+      storage: {{ .Values.postgres.persistence.size | default "1Gi" }}
+{{- end }}
