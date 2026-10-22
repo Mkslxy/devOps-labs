@@ -3,7 +3,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, Sp
 from django.conf import settings
 from django.conf.urls.static import static
 
-from apps.core.views import health_check
+from apps.core.views import health_check, version_check
 
 urlpatterns = [
     path('', include('apps.users.urls')),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 
     path('health/', health_check, name='health_check'),
+    path('version/', version_check, name='version_check'),
 ]
 
 if settings.DEBUG:

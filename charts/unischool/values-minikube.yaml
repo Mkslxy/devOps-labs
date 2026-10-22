@@ -1,0 +1,67 @@
+# Values for Minikube environment managed by Argo CD (Lab 5)
+
+api:
+  replicaCount: 1
+  image:
+    repository: ghcr.io/mkslxy/devops-labs/api
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  service:
+    type: NodePort
+    port: 8000
+    targetPort: 8000
+    nodePort: 30080
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+postgres:
+  image:
+    repository: postgres
+    tag: "17-alpine"
+    pullPolicy: IfNotPresent
+  persistence:
+    enabled: true
+    size: 1Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+redis:
+  image:
+    repository: redis
+    tag: "7-alpine"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+ingress:
+  enabled: false
+  host: unischool.local
+
+config:
+  djangoDebug: "True"
+
+secrets:
+  dbPassword: "unischool_secure_postgres_pass_2026"
+  djangoSecret: "django-insecure-unischool-k8s-lab5-key-2026"
+  geminiToken: "unischool-gemini-dev-key"
+  tgToken: "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"
+  tgSecret: "unischool_telegram_dev_secret"
+
+hooks:
+  preUpgrade:
+    enabled: false

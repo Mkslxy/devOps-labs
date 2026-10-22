@@ -1,0 +1,27 @@
+# DVO-L4-3C8B52
+Дякуємо за встановлення чарта {{ .Chart.Name }} (реліз: {{ .Release.Name }})!
+
+Застосунок UniSchool успішно розгорнуто у просторі імен "{{ .Release.Namespace }}".
+
+1. Отримати статус релізу та подів:
+   kubectl get pods -n {{ .Release.Namespace }} -l "app.kubernetes.io/instance={{ .Release.Name }}"
+   kubectl get svc -n {{ .Release.Namespace }} -l "app.kubernetes.io/instance={{ .Release.Name }}"
+
+2. Спосіб доступу до UniSchool API:
+{{- if eq .Values.api.service.type "NodePort" }}
+   - Через сервіс NodePort:
+     export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "unischool.fullname" . }}-api)
+     export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+     echo "Адреса застосунку: http://${NODE_IP}:${NODE_PORT}"
+     echo "Health-check: http://${NODE_IP}:${NODE_PORT}/health/"
+     echo "Swagger UI: http://${NODE_IP}:${NODE_PORT}/schema/swagger/"
+{{- else if .Values.ingress.enabled }}
+   - Через Ingress:
+     http://{{ .Values.ingress.host }}{{ .Values.ingress.path }}
+     Додайте запис у hosts-файл:
+     $(minikube ip) {{ .Values.ingress.host }}
+{{- else }}
+   - Через перенаправлення портів (Port-Forward):
+     kubectl port-forward -n {{ .Release.Namespace }} svc/{{ include "unischool.fullname" . }}-api 8000:{{ .Values.api.service.port }}
+     Відкрийте у браузері: http://localhost:8000/
+{{- end }}

@@ -1,4 +1,5 @@
-﻿from rest_framework.decorators import api_view, permission_classes
+import os
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from django.db import connection
@@ -11,6 +12,7 @@ logger = logging.getLogger(__name__)
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def health_check(request):
+    version = os.getenv("APP_VERSION", "1.0.0")
     try:
         with connection.cursor() as cursor:
             cursor.execute("SELECT 1")
@@ -18,12 +20,24 @@ def health_check(request):
 
         return Response({
             "status": "OK",
+            "version": version,
             "timestamp": datetime.now().isoformat()
         }, status=200)
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
         # Якщо БД лежить — повертаємо 503
         return Response(
-            {"status": "Database unavailable"},
+            {"status": "Database unavailable", "version": version},
             status=503
         )
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def version_check(request):
+    version = os.getenv("APP_VERSION", "1.0.0")
+    return Response({
+        "version": version,
+        "service": "unischool-api",
+        "timestamp": datetime.now().isoformat()
+    }, status=200)

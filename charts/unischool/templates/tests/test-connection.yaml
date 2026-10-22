@@ -1,0 +1,29 @@
+# DVO-L4-3C8B52
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "unischool.fullname" . }}-test-connection
+  labels:
+    {{- include "unischool.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    {{- include "unischool.annotations" . | nindent 4 }}
+spec:
+  restartPolicy: Never
+  containers:
+    - name: test-connection
+      image: "{{ .Values.api.image.repository }}:{{ .Values.api.image.tag | default .Chart.AppVersion }}"
+      command:
+        - python
+        - -c
+        - |
+          import urllib.request
+          req = urllib.request.Request(
+              'http://{{ include "unischool.fullname" . }}-api:{{ .Values.api.service.port }}/health/',
+              headers={'Host': 'localhost'}
+          )
+          with urllib.request.urlopen(req, timeout=10) as response:
+              print(f"Status Code: {response.status}")
+              assert response.status == 200, "Health check failed!"
+              print("Test connection to UniSchool API succeeded!")

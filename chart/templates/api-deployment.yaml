@@ -38,6 +38,8 @@ spec:
             - containerPort: {{ .Values.api.service.targetPort | default 8000 }}
               name: http
           env:
+            - name: APP_VERSION
+              value: {{ .Values.api.image.tag | default .Chart.AppVersion | quote }}
             - name: DJANGO_SECRET
               valueFrom:
                 secretKeyRef:
